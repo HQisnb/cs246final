@@ -8,6 +8,9 @@ class Posn {
 	int y;
 	
 	Posn(int a, int b);
+	void left();
+	void right();
+	void down();
 	void print();
 };
 
