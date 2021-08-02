@@ -22,7 +22,7 @@ class Subject {
 class Cell : public Subject, public Observer {
     int row;
     int column;
-    int board;
+    int boardnum;
     char type = ' ';
     bool filled = false;
     Cell(int row, int column, int board) : row{row}, column{column}, board{board} {}
@@ -33,7 +33,8 @@ class Cell : public Subject, public Observer {
     bool isEmpty() {
         return this->filled;
     } 
-    void notify(Cell& fromWhom) {
-
-    }
+    void notifyObservers() {
+        observers[0]->notify(this);
+    };
 };
+
