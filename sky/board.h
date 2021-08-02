@@ -9,6 +9,7 @@ class Cell;
 
 class Board {
     public:
+    int boardNo;
     const int rows = 15 + 3;
     const int cols = 11;
     int level = 0; //TODO: is the default level set to 0?
@@ -17,10 +18,10 @@ class Board {
     bool gameStatus = false; // game is still going, neither won nor over.
     Block * currBlock;
     Block * nextBlock;
-    std::vector<Cell*> theBoard;
+    std::vector<Cell> theBoard;
     std::vector<Block*> theBlock;
 
-    void init();
+    void init(int n);
     void levelUp();
     void levelDown();
     void left();
