@@ -9,9 +9,31 @@ class TextDisplay: public Observer, public Board {
     bool isBlind1 = false;
     bool isBlind2 = false;
 
-    void notify(Cell& fromWhom) {
-
+    TextDisplay() {
+        for (int i = 0; i < 18; i++) {
+            std::vector<char> row;
+            for (int j = 0; j < 11; j++) {
+                row.emplace_back(' ');
+            }
+            board1.emplace_back(' ');
+        }
+        for (int i = 0; i < 18; i++) {
+            std::vector<char> row;
+            for (int j = 0; j < 11; j++) {
+                row.emplace_back(' ');
+            }
+            board2.emplace_back(' ');
+        }
     }
+
+    void notify(Cell& fromWhom) {
+        if (boardnum == 1) {
+            board1[fromWhom.column][fromWhom.row] = fromWhom.type;
+        } else {
+            board2[fromWhom.column][fromWhom.row] = fromWhom.type;
+        }
+    }
+
     void print() {
         std::cout << "level:    " << level1 << "       ";
         std::cout << "level:    " << level2 << std::endl;
@@ -42,6 +64,16 @@ class TextDisplay: public Observer, public Board {
         std::cout << "-----------       -----------" << std::endl;
         
         std::cout << "Next:             Next:      " << std::endl;
-        // here we should add next block print after done level
+        // here we print next block
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 11; j++) {
+                std::cout << next1[i][j];
+            }
+            std::cout << "       ";
+            for (int j = 0; j < 11; j++) {
+                std::cout << next2[i][j];
+            }
+            std::cout << std::endl;
+        }
     }
 };
