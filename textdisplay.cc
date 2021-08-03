@@ -1,9 +1,8 @@
 #include <vector>
-#include "cell.cc"
 #include <iostream>
 #include "board.cc"
 
-class TextDisplay: public Observer, public Board {
+class TextDisplay: public Observer, public Game {
     std::vector<std::vector<char>> board1;
     std::vector<std::vector<char>> board2;
     bool isBlind1 = false;
@@ -27,7 +26,7 @@ class TextDisplay: public Observer, public Board {
     }
 
     void notify(Cell& fromWhom) {
-        if (boardnum == 1) {
+        if (fromWhom.boardNo == 1) {
             board1[fromWhom.column][fromWhom.row] = fromWhom.type;
         } else {
             board2[fromWhom.column][fromWhom.row] = fromWhom.type;
@@ -35,11 +34,11 @@ class TextDisplay: public Observer, public Board {
     }
 
     void print() {
-        std::cout << "level:    " << level1 << "       ";
-        std::cout << "level:    " << level2 << std::endl;
+        std::cout << "level:    " << players[0].level << "       ";
+        std::cout << "level:    " << players[1].level << std::endl;
 
-        std::cout << "score:    " << score1 << "       ";
-        std::cout << "score:    " << score2 << std::endl;
+        std::cout << "score:    " << players[0].score << "       ";
+        std::cout << "score:    " << players[1].score << std::endl;
 
         std::cout << "-----------       -----------" << std::endl;
 
@@ -67,13 +66,15 @@ class TextDisplay: public Observer, public Board {
         // here we print next block
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 11; j++) {
-                std::cout << next1[i][j];
+                std::cout << players[0].nextBlock[i][j];
             }
             std::cout << "       ";
             for (int j = 0; j < 11; j++) {
-                std::cout << next2[i][j];
+                std::cout << players[1].nextBlock[i][j];
             }
             std::cout << std::endl;
         }
     }
 };
+
+    
