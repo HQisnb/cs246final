@@ -1,4 +1,5 @@
 #include <vector>
+class Cell;
 
 class Observer {
     public:
@@ -22,10 +23,10 @@ class Subject {
 class Cell : public Subject, public Observer {
     int row;
     int column;
-    int boardnum;
+    int boardNo;
     char type = ' ';
     bool filled = false;
-    Cell(int row, int column, int board) : row{row}, column{column}, board{board} {}
+    Cell(int row, int column, int boardNo) : row{row}, column{column}, boardNo{boardNo} {}
     ~Cell() {}
     char getType() {
         return this->type;
@@ -34,7 +35,8 @@ class Cell : public Subject, public Observer {
         return this->filled;
     } 
     void notifyObservers() {
-        observers[0]->notify(this);
-    };
+        observers[0]->notify(*this);
+    }
+    friend class TextDisplay;
 };
 
