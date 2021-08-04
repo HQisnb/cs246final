@@ -1,6 +1,17 @@
 #include <vector>
 #include <iostream>
 #include "board.cc"
+#include "posn.h"
+#include "block.h"
+
+bool belongTo(int x, int y, std::vector<Posn> lst) {
+    for (int i = 0; i < 4; i++) {
+        if (x == lst[i].x && y == lst[i].y) {
+            return true;
+        }
+    }
+    return false;
+}
 
 class TextDisplay: public Observer, public Game {
     std::vector<std::vector<char>> board1;
@@ -66,11 +77,19 @@ class TextDisplay: public Observer, public Game {
         // here we print next block
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 11; j++) {
-                std::cout << players[0].nextBlock[i][j];
+                if (belongTo(i, j, players[0].nextBlock->points)) {
+                    std::cout << players[0].nextBlock->type;
+                } else {
+                    std::cout << ' ';
+                }
             }
             std::cout << "       ";
             for (int j = 0; j < 11; j++) {
-                std::cout << players[1].nextBlock[i][j];
+                if (belongTo(i, j, players[1].nextBlock->points)) {
+                    std::cout << players[1].nextBlock->type;
+                } else {
+                    std::cout << ' ';
+                }
             }
             std::cout << std::endl;
         }
