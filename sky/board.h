@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "block.h"
 
 class Block;
 class Cell;
@@ -12,6 +13,7 @@ class Board {
     int boardNo;
     int score;
     int level = 0; //TODO: is the default level set to 0?
+    bool at_turn;//true means this player is playing. false means the other player is playing
     const int rows = 15 + 3;
     const int cols = 11;
     bool random = false; // random is the random switch, default to false which is off.
@@ -20,7 +22,7 @@ class Board {
     Block * currBlock;
     Block * nextBlock;
     std::vector<Cell> theBoard;
-    std::vector<Block*> theBlock;
+    // std::vector<Block*> theBlock;
 
     void init(int n);
     void levelUp();
@@ -29,10 +31,11 @@ class Board {
     void right();
     void down();
     void drop();
-    bool isMoveValid();
+    bool isMoveValid(char c);
     void randomSwitch();
     void rowDelete();
     void mutateBlock();
+    void blockPointsSort();
     // void blind();
     // void heavy();
     // void force();
