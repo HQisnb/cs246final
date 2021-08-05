@@ -9,20 +9,21 @@
 class Block {
     public:
     //protected:
-    Posn llc  = Posn { 1, 15 }; // llc stands for LowerLeftCorner which is maintained during rotation.
+    Posn llc  = Posn { 1, 4 }; // llc stands for LowerLeftCorner which is maintained during rotation.
     int rot; // rot can be 1, 2, 3, 4 representing 4 types of position of rotation.
     std::vector<Posn> points; // the size of vector is mostly 4.
     
     public:
     Block(int rot = 1);
-    // virtual ~Block();
+    virtual ~Block();
     void moveLeft();
     void moveRight();
     void moveDown();
     virtual void rot_cw() = 0;
     virtual void rot_ccw() = 0;
-    void blockPointsSort();
     virtual char getType() = 0;
+    virtual void print() = 0;
+    void blockPointsSort();
     int minX();
     int maxX();
     int minY();
@@ -32,11 +33,12 @@ class Iblock : public Block {
     public:
     char type = 'I';
     Iblock(int rot) : Block{rot} {
-        points.emplace_back(Posn{1, 15});
-        points.emplace_back(Posn{2, 15});
-        points.emplace_back(Posn{3, 15});
-        points.emplace_back(Posn{4, 15});
+        points.emplace_back(Posn{1, 4});
+        points.emplace_back(Posn{2, 4});
+        points.emplace_back(Posn{3, 4});
+        points.emplace_back(Posn{4, 4});
     };
+    ~Iblock();
     void rot_cw() override;
     void rot_ccw() override;
     char getType() override;

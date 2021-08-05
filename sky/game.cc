@@ -21,5 +21,11 @@ int main() {
     g1.players[0]->nextBlock = new Iblock{2};
     g1.players[1]->currBlock = new Iblock{3};
     g1.players[1]->nextBlock = new Iblock{4};
+    
     td.print();
+
+    // delete g1.players[0]->currBlock;
+    // delete g1.players[0]->nextBlock;
+    // delete g1.players[1]->currBlock;
+    // delete g1.players[1]->nextBlock;
 }

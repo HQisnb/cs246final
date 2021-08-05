@@ -3,6 +3,9 @@
 #include <algorithm>
 
 Block::Block(int rot) : rot { rot } {};
+Block::~Block() {
+    std::cout << "Block destructor called" << std::endl;
+}
 
 void Block::moveLeft() { 
     llc.left();
@@ -26,6 +29,10 @@ void Block::moveDown() {
     for (size_t i = 0; i < points.size(); i++) {
         points[i].down();
     }
+}
+
+Iblock::~Iblock() {
+    std::cout << "Iblock destructor called" << std::endl;
 }
 
 void Iblock::rot_cw() {

@@ -1,9 +1,14 @@
 #include "textdisplay.h"
 
 
-bool belongTo(int x, int y, std::vector<Posn> lst) {
-    for (int i = 0; i < 4; i++) {
-        if (x == lst[i].x && y == lst[i].y) {
+bool belongTo(int i, int j, std::vector<Posn> lst) {
+    for (int a = 0; a < 4; a++) {
+        // std::cout << "lst[a].x is " << lst[a].x << std::endl;
+        // std::cout << "lst[a].y is " << lst[a].y << std::endl;
+        // std::cout << "i is " << i << std::endl;
+        // std::cout << "j is " << j << std::endl;
+        if ((j == lst[a].x) && (i == lst[a].y)) {
+            // std::cout << "It can be true" << std::endl;
             return true;
         }
     }
@@ -67,15 +72,18 @@ void TextDisplay::print() {
     
     std::cout << "Next:             Next:      " << std::endl;
     // here we print next block
-    for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 11; j++) {
+    // game->players[0]->nextBlock->print();
+
+    
+    for (int i = 1; i <= 4; i++) {
+        for (int j = 1; j <= 11; j++) {
             if (belongTo(i, j, game->players[0]->nextBlock->points)) {
-                std::cout << "IT CAN BE TRUE" << std::endl;
+                // std::cout << "IT CAN BE TRUE" << std::endl;
                 std::cout << game->players[0]->nextBlock->getType();
             } else {
-                std::cout << "HERE IT IS!" << std::endl;
-                std::cout << "I is " << i << " and j is " << j << std::endl;
-                std::cout << game->players[0]->nextBlock->points[0].print
+                // std::cout << "HERE IT IS!" << std::endl;
+                // std::cout << "I is " << i << " and j is " << j << std::endl;
+                
                 std::cout << ' ';
             }
         }
