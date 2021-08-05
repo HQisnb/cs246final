@@ -14,4 +14,6 @@ class Posn {
 	void print();
 };
 
+bool smallerThan(Posn a, Posn b);
+
 #endif

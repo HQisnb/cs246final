@@ -21,6 +21,10 @@ class Block {
     void moveDown();
     virtual void rot_cw() = 0;
     virtual void rot_ccw() = 0;
+    void blockPointsSort();
+    int minX();
+    int maxX();
+    int minY();
 };
 
 class Iblock : public Block {
