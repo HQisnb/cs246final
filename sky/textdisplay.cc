@@ -88,7 +88,7 @@ void TextDisplay::print() {
             }
         }
         std::cout << "       ";
-        for (int j = 0; j < 11; j++) {
+        for (int j = 1; j <= 11; j++) {
             if (belongTo(i, j, game->players[1]->nextBlock->points)) {
                 std::cout << game->players[1]->nextBlock->getType();
             } else {

@@ -30,7 +30,7 @@ bool Board::isMoveValid(char c) {//TODO: NEED FURTHER CODE // create a temp bloc
         if (currBlock->minX() == 1) { return false; }
         for (size_t i = 0; i < currBlock->points.size(); i++) {
             int temp_x = currBlock->points[i].x - 1;
-            int temp_y = (rows + 1 - currBlock->points[i].y);// TODO: 18 + 1 - y
+            int temp_y = currBlock->points[i].y;// TODO: 18 + 1 - y
             if (theBoard[temp_y - 1][temp_x - 1].isFilled()) { return false; }
         }
         return true;
@@ -39,16 +39,16 @@ bool Board::isMoveValid(char c) {//TODO: NEED FURTHER CODE // create a temp bloc
         if (currBlock->maxX() == 11) { return false; }
         for (size_t i = 0; i < currBlock->points.size(); i++) {
             int temp_x = currBlock->points[i].x + 1;
-            int temp_y = (rows + 1 - currBlock->points[i].y);// TODO: 18 + 1 - y
+            int temp_y = currBlock->points[i].y;// TODO: 18 + 1 - y
             if (theBoard[temp_y - 1][temp_x - 1].isFilled()) { return false; }
         }
         return true;
     }
     if (c == 'd') {
-        if (currBlock->minY() == 1) { return false; }
+        if (currBlock->maxY() == 18) { return false; }
         for (size_t i = 0; i < currBlock->points.size(); i++) {
             int temp_x = currBlock->points[i].x;
-            int temp_y = (rows + 1 - currBlock->points[i].y) + 1;// TODO: 18 + 1 - y
+            int temp_y = currBlock->points[i].y + 1;// TODO: 18 + 1 - y
             if (theBoard[temp_y - 1][temp_x - 1].isFilled()) { return false; }
         }
         return true;

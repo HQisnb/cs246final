@@ -17,14 +17,18 @@ int main() {
     TextDisplay td{&g1};
     g1.newGame();
 
-    g1.players[0]->currBlock = new Iblock{1};
-    g1.players[0]->nextBlock = new Iblock{2};
-    g1.players[1]->currBlock = new Iblock{3};
-    g1.players[1]->nextBlock = new Iblock{4};
-    
+    // g1.players[0]->currBlock = new Iblock{1};// for testing purpose
+    g1.players[0]->nextBlock = new Oblock{2};
+    // g1.players[1]->currBlock = new Jblock{3};
+    g1.players[1]->nextBlock = new Tblock{4};
     td.print();
 
-    // delete g1.players[0]->currBlock;
+    g1.players[1]->nextBlock->moveRight();
+    g1.players[1]->nextBlock->moveRight();
+    g1.players[1]->nextBlock->moveRight();
+    g1.players[0]->nextBlock->moveRight();
+    td.print();
+    // delete g1.players[0]->currBlock; to avoid memory leak
     // delete g1.players[0]->nextBlock;
     // delete g1.players[1]->currBlock;
     // delete g1.players[1]->nextBlock;

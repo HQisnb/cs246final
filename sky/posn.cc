@@ -12,7 +12,7 @@ void Posn::right() {
 }
 
 void Posn::down() {
-    y -= 1;
+    y += 1;
 }
 
 void Posn::print() {
@@ -20,7 +20,7 @@ void Posn::print() {
 }
 
 bool smallerThan(Posn a, Posn b) {//if a is smaller than b
-    if (a.y > b.y) {
+    if (a.y < b.y) {
         return true;
     } else if (a.y == b.y) {
         if (a.x < b.x) {
