@@ -35,15 +35,18 @@ void Iblock::rot_ccw() {
     std::cout << "IBlock rot_ccw() does nothing" << std::endl;
 }
 
+char Iblock::getType() { return type; }
+
 void Block::blockPointsSort() {
     sort(points.begin(), points.end(), smallerThan);
 }
+
 
 int Block::minX() {
     int minX = points[0].x;
     for (size_t i = 1; i < points.size(); i++) {
         if (points[i].x < minX) {
-            minX = points[i].x
+            minX = points[i].x;
         }
     }
     return minX;
@@ -53,7 +56,7 @@ int Block::maxX() {
     int maxX = points[0].x;
     for (size_t i = 1; i < points.size(); i++) {
         if (points[i].x > maxX) {
-            maxX = points[i].x
+            maxX = points[i].x;
         }
     }
     return maxX;
@@ -63,13 +66,15 @@ int Block::minY() {
     int minY = points[0].y;
     for (size_t i = 1; i < points.size(); i++) {
         if (points[i].y < minY) {
-            minY = points[i].y
+            minY = points[i].y;
         }
     }
     return minY;
 }
 
-int main() {
+
+
+/*int main() {
     Iblock i1 { 2 };
     i1.print();
     std::cout << "minX" << i1.minX();
@@ -115,4 +120,4 @@ int main() {
     // uni_i1->rot_cw();
     // uni_i1->rot_ccw();
 
-}
+}*/

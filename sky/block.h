@@ -22,6 +22,7 @@ class Block {
     virtual void rot_cw() = 0;
     virtual void rot_ccw() = 0;
     void blockPointsSort();
+    virtual char getType() = 0;
     int minX();
     int maxX();
     int minY();
@@ -38,6 +39,7 @@ class Iblock : public Block {
     };
     void rot_cw() override;
     void rot_ccw() override;
+    char getType() override;
     void print() {
         llc.print();
         std::cout << "Block type " << type << " with rot " << rot << std::endl;

@@ -1,0 +1,4 @@
+How do you print the block within the board;
+Using currBlock pointer, go through the board and if the Cell
+belongs to the points (and the cell should be empty). Print the 
+char of the block. Do it in textdisplay.cc de print()

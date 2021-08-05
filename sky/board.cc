@@ -3,12 +3,15 @@
 #include <iostream>
 
 
-void Board::init(int n) {
+Board::Board(int n) {
     boardNo = n;
+    theBoard.clear();
     for (int y = 1; y <= rows; y++) {//x goes from left to right, y goes from up to down
+    std::vector<Cell> rowVector;
         for (int x = 1; x <= cols; x++) {
-            theBoard.emplace_back(y, x, boardNo);
+            rowVector.emplace_back(y, x, boardNo);
         }
+    theBoard.push_back(rowVector);
     }
 }
 
@@ -50,6 +53,7 @@ bool Board::isMoveValid(char c) {//TODO: NEED FURTHER CODE // create a temp bloc
         }
         return true;
     }
+    return true;//TODO: NEED FURTHER CODE
 }
 
 void Board::left() {
@@ -73,4 +77,5 @@ void Board::drop() {
     }
     is_playing = false;
 }
+
 

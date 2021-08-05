@@ -22,7 +22,7 @@ class Board {
     std::vector<std::vector<Cell>> theBoard;
     // std::vector<Block*> theBlock;
 
-    void init(int n);
+    Board(int n);
     void levelUp();
     void levelDown();
     void left();

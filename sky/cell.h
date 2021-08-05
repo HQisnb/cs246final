@@ -5,7 +5,7 @@
 
 class Cell : public Subject {
     public:
-    int row;
+    int row;//TODO: row increases from up to down?
     int column;
     int boardNo;
     char type = 'E';// E means empty
