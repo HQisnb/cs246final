@@ -13,10 +13,10 @@ void Cell::notifyObserver() {
 
 
 
-int main() {
-    Cell c1 {4, 5, 0};
-    std::cout << c1.getType() << std::endl;
-    std::cout << c1.isFilled() << std::endl;
-    std::cout << c1.boardNo << std::endl;
-    c1.notifyObserver();
-}
+// int main() {
+//     Cell c1 {4, 5, 0};
+//     std::cout << c1.getType() << std::endl;
+//     std::cout << c1.isFilled() << std::endl;
+//     std::cout << c1.boardNo << std::endl;
+//     c1.notifyObserver();
+// }
