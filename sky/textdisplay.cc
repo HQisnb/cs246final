@@ -50,9 +50,9 @@ void TextDisplay::print() {
 
     std::cout << "-----------       -----------" << std::endl;
 
-    for (int i = 0; i < 18; i++) {
-        for (int j = 0; j < 11; j++) {
-            if (isBlind1 == true && j > 2 && j < 9 && i > 2 && i < 12) {
+    for (int i = 1; i <= 18; i++) {
+        for (int j = 1; j <= 11; j++) {
+            if (isBlind1 == true && j >= 3 && j <= 9 && i >= 3 && i <= 12) {
                 std::cout << "?";
             } else {
                 /////////////////////
@@ -61,12 +61,12 @@ void TextDisplay::print() {
                     continue;
                 }
                 /////////////////////
-                std::cout << board1[i][j];
+                std::cout << board1[i-1][j-1];
             }
         }
         std::cout << "       ";
-        for (int j = 0; j < 11; j++) {
-            if (isBlind2 == true && j > 2 && j < 9 && i > 2 && i < 12) {
+        for (int j = 1; j <= 11; j++) {
+            if (isBlind2 == true && j >= 3 && j <= 9 && i >= 3 && i <= 12) {
                 std::cout << "?";
             } else {
                 /////////////////////
@@ -75,7 +75,7 @@ void TextDisplay::print() {
                     continue;
                 }
                 /////////////////////
-                std::cout << board2[i][j];
+                std::cout << board2[i-1][j-1];
             }
         }
         std::cout << std::endl;
@@ -110,6 +110,4 @@ void TextDisplay::print() {
         std::cout << std::endl;
     }
 }
-
-
 
