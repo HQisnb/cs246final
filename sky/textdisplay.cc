@@ -55,6 +55,12 @@ void TextDisplay::print() {
             if (isBlind1 == true && j > 2 && j < 9 && i > 2 && i < 12) {
                 std::cout << "?";
             } else {
+                /////////////////////
+                if (belongTo(i, j, game->players[0]->currBlock->points)) {
+                    std::cout << game->players[0]->currBlock->type;
+                    continue;
+                }
+                /////////////////////
                 std::cout << board1[i][j];
             }
         }
@@ -63,6 +69,12 @@ void TextDisplay::print() {
             if (isBlind2 == true && j > 2 && j < 9 && i > 2 && i < 12) {
                 std::cout << "?";
             } else {
+                /////////////////////
+                if (belongTo(i, j, game->players[1]->currBlock->points)) {
+                    std::cout << game->players[1]->currBlock->type;
+                    continue;
+                }
+                /////////////////////
                 std::cout << board2[i][j];
             }
         }
