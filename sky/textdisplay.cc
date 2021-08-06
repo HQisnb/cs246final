@@ -57,7 +57,7 @@ void TextDisplay::print() {
             } else {
                 /////////////////////
                 if (belongTo(i, j, game->players[0]->currBlock->points)) {
-                    std::cout << game->players[0]->currBlock->type;
+                    std::cout << game->players[0]->currBlock->getType();
                     continue;
                 }
                 /////////////////////
@@ -71,7 +71,7 @@ void TextDisplay::print() {
             } else {
                 /////////////////////
                 if (belongTo(i, j, game->players[1]->currBlock->points)) {
-                    std::cout << game->players[1]->currBlock->type;
+                    std::cout << game->players[1]->currBlock->getType();
                     continue;
                 }
                 /////////////////////
