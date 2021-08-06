@@ -17,19 +17,26 @@ int main() {
     TextDisplay td{&g1};
     g1.newGame();
 
-    // g1.players[0]->currBlock = new Iblock{1};// for testing purpose
+    g1.players[0]->currBlock = new Sblock{1};// for testing purpose
     g1.players[0]->nextBlock = new Oblock{2};
-    // g1.players[1]->currBlock = new Jblock{3};
+    g1.players[1]->currBlock = new Jblock{3};
     g1.players[1]->nextBlock = new Tblock{4};
     td.print();
 
-    g1.players[1]->nextBlock->moveRight();
-    g1.players[1]->nextBlock->moveRight();
-    g1.players[1]->nextBlock->moveRight();
-    g1.players[0]->nextBlock->moveRight();
+    g1.players[1]->currBlock->moveRight();
+    g1.players[1]->currBlock->moveRight();
+    g1.players[1]->currBlock->moveRight();
+    g1.players[0]->currBlock->moveRight();
+    g1.players[0]->drop();
+    g1.players[1]->drop();
+    g1.players[1]->currBlock->moveRight();
+    g1.players[1]->currBlock->moveRight();
+    g1.players[1]->currBlock->moveRight();
+
     td.print();
     // delete g1.players[0]->currBlock; to avoid memory leak
     // delete g1.players[0]->nextBlock;
     // delete g1.players[1]->currBlock;
     // delete g1.players[1]->nextBlock;
 }
+

@@ -83,19 +83,13 @@ void TextDisplay::print() {
     std::cout << "-----------       -----------" << std::endl;
     
     std::cout << "Next:             Next:      " << std::endl;
-    // here we print next block
-    // game->players[0]->nextBlock->print();
 
-    
-    for (int i = 1; i <= 4; i++) {
+    // here we print next block
+    for (int i = 3; i <= 4; i++) {//TODO: add some documentation to illustrate
         for (int j = 1; j <= 11; j++) {
             if (belongTo(i, j, game->players[0]->nextBlock->points)) {
-                // std::cout << "IT CAN BE TRUE" << std::endl;
                 std::cout << game->players[0]->nextBlock->getType();
             } else {
-                // std::cout << "HERE IT IS!" << std::endl;
-                // std::cout << "I is " << i << " and j is " << j << std::endl;
-                
                 std::cout << ' ';
             }
         }

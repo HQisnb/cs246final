@@ -127,8 +127,8 @@ class Sblock : public Block {
     Sblock(int rot) : Block{rot} {
         points.emplace_back(Posn{1, 4});
         points.emplace_back(Posn{2, 4});
+        points.emplace_back(Posn{2, 3});
         points.emplace_back(Posn{3, 3});
-        points.emplace_back(Posn{4, 3});
         this->blockPointsSort();
     };
     ~Sblock();
