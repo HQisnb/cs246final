@@ -25,17 +25,38 @@ void Iblock::rot_cw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[1].x -= 1;
+        temp[2].x -= 2;
+        temp[3].x -= 3;
+        temp[1].y -= 1;
+        temp[2].y -= 2;
+        temp[3].y -= 3;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].x += 1;
+        temp[1].x += 2;
+        temp[2].x += 3;
+        temp[0].y += 1;
+        temp[1].y += 2;
+        temp[2].y += 3;
     } else if (curStatus == 2) {
-        temp[]
+        temp[1].x -= 1;
+        temp[2].x -= 2;
+        temp[3].x -= 3;
+        temp[1].y -= 1;
+        temp[2].y -= 2;
+        temp[3].y -= 3;
     } else {
-        temp[]
+        temp[0].x += 1;
+        temp[1].x += 2;
+        temp[2].x += 3;
+        temp[0].y += 1;
+        temp[1].y += 2;
+        temp[2].y += 3;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
         this->curStatus = (curStatus + 1) % 4;
+        blockPointsSort();
     }
 }
 // for J
@@ -46,17 +67,34 @@ void Jblock::rot_cw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[2].x -= 1;
+        temp[3].x -= 1;
+        temp[2].y -= 2;
+        temp[3].y -= 2;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].y += 1;
+        temp[1].y += 1;
+        temp[2].x += 2;
+        temp[3].x += 2;
     } else if (curStatus == 2) {
-        temp[]
+        temp[0].y += 1;
+        temp[1].y += 1;
+        temp[2].x -= 1;
+        temp[3].x -= 1;
+        temp[2].y -= 1;
+        temp[3].y -= 1;
     } else {
-        temp[]
+        temp[2].x += 1;
+        temp[3].x += 1;
+        temp[0].y += 1;
+        temp[1].y += 1;
+        temp[0].x -= 1;
+        temp[1].x -= 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
         this->curStatus = (curStatus + 1) % 4;
+        void blockPointsSort();
     }
 }
 
@@ -68,13 +106,21 @@ void Tblock::rot_cw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[2].x -= 1;
+        temp[2].y -= 1;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].x += 1;
+        temp[0].y += 2;
+        temp[1].y += 1;
     } else if (curStatus == 2) {
-        temp[]
+        temp[2].x -= 1;
+        temp[2].y -= 1;
+        temp[3].x -= 2;
+        temp[3].y -= 2;
     } else {
-        temp[]
+        temp[3].x += 1;
+        temp[0].x += 2;
+        temp[0].y += 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
@@ -90,13 +136,21 @@ void Sblock::rot_cw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[1].x -= 2;
+        temp[1].y -= 1;
+        temp[2].y -= 1;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].x += 2;
+        temp[0].y += 1;
+        temp[1].y += 1;
     } else if (curStatus == 2) {
-        temp[]
+        temp[1].x -= 2;
+        temp[1].y -= 1;
+        temp[2].y -= 1;
     } else {
-        temp[]
+        temp[0].x += 2;
+        temp[0].y += 1;
+        temp[1].y += 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
@@ -112,13 +166,21 @@ void Zblock::rot_cw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[2].x -= 1;
+        temp[3].x -= 1;
+        temp[3].y -= 2;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].x += 1;
+        temp[0].y += 2;
+        temp[3].x += 1;
     } else if (curStatus == 2) {
-        temp[]
+        temp[2].x -= 1;
+        temp[3].x -= 1;
+        temp[3].y -= 2;
     } else {
-        temp[]
+        temp[0].x += 1;
+        temp[0].y += 2;
+        temp[3].x += 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
@@ -137,13 +199,24 @@ void Lblock::rot_cw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[0].y -= 1;
+        temp[3].y -= 1;
+        temp[0].x -= 2;
+        temp[3].x -= 2;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].y += 1;
+        temp[3].y -= 1;
+        temp[0].x += 2;
     } else if (curStatus == 2) {
-        temp[]
+        temp[0].y -= 1;
+        temp[2].x -= 1;
+        temp[2].y -= 1;
+        temp[3].x += 1;
     } else {
-        temp[]
+        temp[0].y += 2;
+        temp[2].x += 1;
+        temp[1].x += 1;
+        temp[1].y += 2;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
@@ -155,24 +228,7 @@ void Lblock::rot_cw() {
 void rot_ccw();
 // for I
 void Iblock::rot_ccw() {
-    std::vector<Posn> temp;
-    temp.clear();
-    for (int a = 0; a < 4; a++) {
-        temp.emplace_back(points[a]);
-    }
-    if (curStatus == 0) {
-        temp[]
-    } else if (curStatus == 1) {
-        temp[]
-    } else if (curStatus == 2) {
-        temp[]
-    } else {
-        temp[]
-    }
-    if (checkTemp(temp) == true) {
-        this->points = temp;
-        this->curStatus = (curStatus + 1) % 4;
-    }
+    rot_cw();
 }
 
 // for J
@@ -183,17 +239,29 @@ void Jblock::rot_ccw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[0].x += 1;
+        temp[3].y -= 2;
+        temp[3].x -= 1;
     } else if (curStatus == 1) {
-        temp[]
+        temp[1].y += 2;
+        temp[0].x += 2;
+        temp[0].y += 2;
     } else if (curStatus == 2) {
-        temp[]
+        temp[0].y -= 1;
+        temp[1].y -= 1;
+        temp[2].x -= 2;
+        temp[3].x -= 2;
     } else {
-        temp[]
+        temp[2].y -= 1;
+        temp[3].y -= 1;
+        temp[0].x += 1;
+        temp[0].y += 1;
+        temp[1].x += 1;
+        temp[1].y += 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
-        this->curStatus = (curStatus + 1) % 4;
+        this->curStatus = (curStatus + 3) % 4;
     }
 }
 
@@ -205,62 +273,36 @@ void Tblock::rot_ccw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[3].x -= 1;
+        temp[2].x -= 2;
+        temp[2].y -= 1;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].x += 1;
+        temp[0].y += 1;
     } else if (curStatus == 2) {
-        temp[]
+        temp[1].y -= 1;
+        temp[3].x -= 1;
+        temp[3].y -= 2;
     } else {
-        temp[]
+        temp[0].x += 2;
+        temp[0].y += 2;
+        temp[1].x += 1;
+        temp[1].y += 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
-        this->curStatus = (curStatus + 1) % 4;
+        this->curStatus = (curStatus + 3) % 4;
     }
 }
 
 // for S
 void Sblock::rot_ccw() {
-    std::vector<Posn> temp;
-    temp.clear();
-    for (int a = 0; a < 4; a++) {
-        temp.emplace_back(points[a]);
-    }
-    if (curStatus == 0) {
-        temp[]
-    } else if (curStatus == 1) {
-        temp[]
-    } else if (curStatus == 2) {
-        temp[]
-    } else {
-        temp[]
-    }
-    if (checkTemp(temp) == true) {
-        this->points = temp;
-        this->curStatus = (curStatus + 1) % 4;
-    }
+    rot_cw();
 }
 
 // for Z
 void Zblock::rot_ccw() {
-    std::vector<Posn> temp;
-    temp.clear();
-    for (int a = 0; a < 4; a++) {
-        temp.emplace_back(points[a]);
-    }
-    if (curStatus == 0) {
-        temp[]
-    } else if (curStatus == 1) {
-        temp[]
-    } else if (curStatus == 2) {
-        temp[]
-    } else {
-        temp[]
-    }
-    if (checkTemp(temp) == true) {
-        this->points = temp;
-        this->curStatus = (curStatus + 1) % 4;
-    }
+    rot_cw();
 }
 
 // for O
@@ -274,16 +316,27 @@ void Lblock::rot_ccw() {
         temp.emplace_back(points[a]);
     }
     if (curStatus == 0) {
-        temp[]
+        temp[1].y -= 2;
+        temp[2].y -= 2;
+        temp[0].x -= 1;
+        temp[3].x -= 1;
     } else if (curStatus == 1) {
-        temp[]
+        temp[0].x += 2;
+        temp[0].y += 2;
+        temp[1].x += 2;
     } else if (curStatus == 2) {
-        temp[]
+        temp[1].y += 1;
+        temp[2].x -= 2;
+        temp[2].y -= 1;
     } else {
-        temp[]
+        temp[0].y -= 1;
+        temp[3].x -= 1;
+        temp[1].x += 1;
+        temp[1].y += 1;
     }
     if (checkTemp(temp) == true) {
         this->points = temp;
-        this->curStatus = (curStatus + 1) % 4;
+        this->curStatus = (curStatus + 3) % 4;
     }
 }
+
