@@ -78,4 +78,23 @@ void Board::drop() {
     is_playing = false;
 }
 
+void Board::rot_cw() {
+    std::vector<Posn> temp = currBlock->rot_cw();
+    if (this->checkTemp(temp)) {// keep this or not?
+        currBlock->points = temp;
+        currBlock->curStatus = (currBlock->curStatus + 1) % 4;
+        currBlock->blockPointsSort();
+    }
+}
 
+
+// 1. check 是否出界！
+// 2. check 转完会不会重叠 
+bool Board::checkTemp(std::vector<Posn> temp) {
+    for (int a = 0; a < 4; a++) {
+        if (theBoard[temp[a].x][temp[a].y].type != 'E') {
+            return false;
+        } 
+    }
+    return true;
+}

@@ -29,7 +29,10 @@ class Board {
     void right();
     void down();
     void drop();
+    void rot_cw();// newly added
+    // void rot_ccw();
     bool isMoveValid(char c);
+    bool checkTemp(std::vector<Posn> temp);// checking if rotation is valid
     // void randomSwitch();
     void rowDelete();
     void mutateBlock();

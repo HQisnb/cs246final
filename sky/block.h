@@ -6,11 +6,13 @@
 #include <vector>
 #include "posn.h"
 
+class Board;
+
 class Block {
     public:
     //protected:
     Posn llc  = Posn { 1, 4 }; // llc stands for LowerLeftCorner which is maintained during rotation.
-    int rot; // rot can be 1, 2, 3, 4 representing 4 types of position of rotation.
+    int curStatus = 0; // curStatus can be 0, 1, 2, 3 representing 4 types of position of rotation.
     std::vector<Posn> points; // the size of vector is mostly 4.
     
     public:
@@ -19,7 +21,7 @@ class Block {
     void moveLeft();
     void moveRight();
     void moveDown();
-    virtual void rot_cw() = 0;
+    virtual std::vector<Posn> rot_cw() = 0;
     virtual void rot_ccw() = 0;
     virtual char getType() = 0;
     virtual void print() = 0;
@@ -27,6 +29,8 @@ class Block {
     int minX();
     int maxX();
     int maxY();
+
+    
 };
 
 class Iblock : public Block {
@@ -40,12 +44,12 @@ class Iblock : public Block {
         this->blockPointsSort();
     };
     ~Iblock();
-    void rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
@@ -63,12 +67,12 @@ class Jblock : public Block {
         this->blockPointsSort();
     };
     ~Jblock();
-    void rot_cw() override;
+    // std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
@@ -86,12 +90,12 @@ class Lblock : public Block {
         this->blockPointsSort();
     };
     ~Lblock();
-    void rot_cw() override;
+    // std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
@@ -109,12 +113,12 @@ class Oblock : public Block {
         this->blockPointsSort();
     };
     ~Oblock();
-    void rot_cw() override;
+    // std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
@@ -132,12 +136,12 @@ class Sblock : public Block {
         this->blockPointsSort();
     };
     ~Sblock();
-    void rot_cw() override;
+    // std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
@@ -155,12 +159,12 @@ class Zblock : public Block {
         this->blockPointsSort();
     };
     ~Zblock();
-    void rot_cw() override;
+    // std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
@@ -178,12 +182,12 @@ class Tblock : public Block {
         this->blockPointsSort();
     };
     ~Tblock();
-    void rot_cw() override;
+    // std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
-        std::cout << "Block type " << type << " with rot " << rot << std::endl;
+        std::cout << "Block type " << type << " with rot " << curStatus << std::endl;
         for (auto i : points) {
             i.print();
         }
