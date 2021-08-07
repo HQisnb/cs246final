@@ -1,0 +1,289 @@
+// rotation method
+
+// give a status of block; four directions 0,1,2,3
+// which means 0， 90， 180， 270 degree
+
+// sort them after each rotation to make sure this works
+
+// 1. check 是否出界！
+// 2. check 转完会不会重叠 
+bool Board::checkTemp(std::vector<Posn> temp) {
+    for (int a = 0; a < 4; a++) {
+        if (theBoard[temp[a].x][temp[a].y].type != 'E') {
+            return false;
+        } 
+    }
+    return true;
+}
+// here is clockwise
+void rot_cw();
+// for I
+void Iblock::rot_cw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+// for J
+void Jblock::rot_cw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for T
+void Tblock::rot_cw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for S
+void Sblock::rot_cw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for Z
+void Zblock::rot_cw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for O
+void Oblock::rot_cw() {}
+
+// for L
+void Lblock::rot_cw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// here is counter-clockwise
+void rot_ccw();
+// for I
+void Iblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for J
+void Jblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for T
+void Tblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for S
+void Sblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for Z
+void Zblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
+
+// for O
+void Oblock::rot_ccw() {}
+
+// for L
+void Lblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[]
+    } else if (curStatus == 1) {
+        temp[]
+    } else if (curStatus == 2) {
+        temp[]
+    } else {
+        temp[]
+    }
+    if (checkTemp(temp) == true) {
+        this->points = temp;
+        this->curStatus = (curStatus + 1) % 4;
+    }
+}
