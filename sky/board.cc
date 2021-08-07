@@ -68,7 +68,7 @@ void Board::right() {
 
 void Board::down() {
     if (!isMoveValid('d')) { return; } // unable to move, cmd is invalid
-    currBlock->moveRight();
+    currBlock->moveDown();
 }
 
 void Board::drop() {
@@ -82,8 +82,8 @@ void Board::rot_cw() {
     std::vector<Posn> temp = currBlock->rot_cw();
     if (this->checkTemp(temp)) {// keep this or not?
         currBlock->points = temp;
-        currBlock->curStatus = (currBlock->curStatus + 1) % 4;
         currBlock->blockPointsSort();
+        currBlock->curStatus = (currBlock->curStatus + 1) % 4;
     }
 }
 

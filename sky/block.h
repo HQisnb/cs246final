@@ -16,7 +16,7 @@ class Block {
     std::vector<Posn> points; // the size of vector is mostly 4.
     
     public:
-    Block(int rot = 1);
+    Block();
     virtual ~Block();
     void moveLeft();
     void moveRight();
@@ -36,7 +36,7 @@ class Block {
 class Iblock : public Block {
     public:
     char type = 'I';
-    Iblock(int rot) : Block{rot} {
+    Iblock(): Block{} {
         points.emplace_back(Posn{1, 4});
         points.emplace_back(Posn{2, 4});
         points.emplace_back(Posn{3, 4});
@@ -59,7 +59,7 @@ class Iblock : public Block {
 class Jblock : public Block {
     public:
     char type = 'J';
-    Jblock(int rot) : Block{rot} {
+    Jblock(): Block{} {
         points.emplace_back(Posn{1, 3});
         points.emplace_back(Posn{1, 4});
         points.emplace_back(Posn{2, 4});
@@ -67,7 +67,7 @@ class Jblock : public Block {
         this->blockPointsSort();
     };
     ~Jblock();
-    // std::vector<Posn> rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
@@ -82,7 +82,7 @@ class Jblock : public Block {
 class Lblock : public Block {
     public:
     char type = 'L';
-    Lblock(int rot) : Block{rot} {
+    Lblock(): Block{} {
         points.emplace_back(Posn{1, 4});
         points.emplace_back(Posn{2, 4});
         points.emplace_back(Posn{3, 4});
@@ -90,7 +90,7 @@ class Lblock : public Block {
         this->blockPointsSort();
     };
     ~Lblock();
-    // std::vector<Posn> rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
@@ -105,7 +105,7 @@ class Lblock : public Block {
 class Oblock : public Block {
     public:
     char type = 'O';
-    Oblock(int rot) : Block{rot} {
+    Oblock(): Block{} {
         points.emplace_back(Posn{1, 4});
         points.emplace_back(Posn{2, 4});
         points.emplace_back(Posn{1, 3});
@@ -113,7 +113,7 @@ class Oblock : public Block {
         this->blockPointsSort();
     };
     ~Oblock();
-    // std::vector<Posn> rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
@@ -128,7 +128,7 @@ class Oblock : public Block {
 class Sblock : public Block {
     public:
     char type = 'S';
-    Sblock(int rot) : Block{rot} {
+    Sblock(): Block{} {
         points.emplace_back(Posn{1, 4});
         points.emplace_back(Posn{2, 4});
         points.emplace_back(Posn{2, 3});
@@ -136,7 +136,7 @@ class Sblock : public Block {
         this->blockPointsSort();
     };
     ~Sblock();
-    // std::vector<Posn> rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
@@ -151,7 +151,7 @@ class Sblock : public Block {
 class Zblock : public Block {
     public:
     char type = 'Z';
-    Zblock(int rot) : Block{rot} {
+    Zblock(): Block{} {
         points.emplace_back(Posn{1, 3});
         points.emplace_back(Posn{2, 3});
         points.emplace_back(Posn{2, 4});
@@ -159,7 +159,7 @@ class Zblock : public Block {
         this->blockPointsSort();
     };
     ~Zblock();
-    // std::vector<Posn> rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {
@@ -174,7 +174,7 @@ class Zblock : public Block {
 class Tblock : public Block {
     public:
     char type = 'T';
-    Tblock(int rot) : Block{rot} {
+    Tblock(): Block{} {
         points.emplace_back(Posn{1, 3});
         points.emplace_back(Posn{2, 3});
         points.emplace_back(Posn{3, 3});
@@ -182,7 +182,7 @@ class Tblock : public Block {
         this->blockPointsSort();
     };
     ~Tblock();
-    // std::vector<Posn> rot_cw() override;
+    std::vector<Posn> rot_cw() override;
     void rot_ccw() override;
     char getType() override;
     void print() {

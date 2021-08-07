@@ -17,28 +17,48 @@ int main() {
     TextDisplay td{&g1};
     g1.newGame();
 
-    g1.players[0]->currBlock = new Iblock{1};// for testing purpose
-    g1.players[0]->nextBlock = new Iblock{2};
-    g1.players[1]->currBlock = new Iblock{3};
-    g1.players[1]->nextBlock = new Iblock{4};
+    g1.players[0]->currBlock = new Sblock{};// for testing purpose
+    g1.players[0]->nextBlock = new Zblock{};
+    g1.players[1]->currBlock = new Jblock{};
+    g1.players[1]->nextBlock = new Oblock{};
     td.print();
 
-    // g1.players[1]->right();
+    g1.players[1]->right();
     // g1.players[1]->right();
     // g1.players[1]->right();
     // g1.players[0]->right();
-    // g1.players[0]->down();
+    g1.players[0]->down();
     // g1.players[1]->down();
     // g1.players[1]->right();
     // g1.players[1]->right();
     // g1.players[1]->right();
 
     
-    // td.print();
-    g1.players[0]->rot_cw();
-    g1.players[0]->currBlock->print();
     td.print();
+    g1.players[0]->rot_cw();
+
+    td.print();
+    // g1.players[0]->rot_cw();
+    // td.print();
+
+    // g1.players[0]->rot_cw();
+    // td.print();
+
+    // g1.players[0]->rot_cw();
+    // td.print();
+
+
+
     g1.players[1]->rot_cw();
+    td.print();
+    // g1.players[1]->rot_cw();
+    // td.print();
+    // g1.players[1]->rot_cw();
+    // td.print();
+    // g1.players[1]->rot_cw();
+    // td.print();
+    g1.players[0]->drop();
+    g1.players[1]->drop();
     td.print();
     // delete g1.players[0]->currBlock; to avoid memory leak
     // delete g1.players[0]->nextBlock;
