@@ -12,6 +12,30 @@ void Board::removeCell(int x, int y) {
     }
 }
 
+void Board::rowInit(int row) {
+    for (int i = 0; i < 11; i++) {
+        theBoard[row][i].type = 'E';
+        theBoard[row][i].filled = false;
+    }
+} 
+
+void Board::copyRowAndChange(int row1) {
+    std::vector<Cell> rowUpper;
+    rowUpper.clear();
+    for (int i = 0; i < 11; i++) {
+        rowUpper.emplace_back(theBoard[row1-1][i]);
+        rowUpper[i].row += 1;
+    }
+    theBoard[row1] = rowUpper;
+}
+
+void Board::upperCellDown(int row) {
+    for (int i = row; i > 2; i--) {
+        rowInit(i);
+        copuRowAndChange(i);
+    }
+}
+
 int Board::scoreAndChange() {
     // here is a vector that record filled row
     std:;vector<int> whichRow;
@@ -55,7 +79,8 @@ int Board::scoreAndChange() {
     score += curAdd;
 
     // here we start to change the theBoard!!!
-    
+    for (int i = 0; i < filledNum; i++) {
+        upperCellDown(whichRow[i]);
+    }
 
-    
 }
