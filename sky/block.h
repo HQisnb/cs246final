@@ -22,7 +22,7 @@ class Block {
     void moveRight();
     void moveDown();
     virtual std::vector<Posn> rot_cw() = 0;
-    virtual void rot_ccw() = 0;
+    virtual std::vector<Posn> rot_ccw() = 0;
     virtual char getType() = 0;
     virtual void print() = 0;
     void blockPointsSort();
@@ -45,7 +45,7 @@ class Iblock : public Block {
     };
     ~Iblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
@@ -68,7 +68,7 @@ class Jblock : public Block {
     };
     ~Jblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
@@ -91,7 +91,7 @@ class Lblock : public Block {
     };
     ~Lblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
@@ -114,7 +114,7 @@ class Oblock : public Block {
     };
     ~Oblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
@@ -137,7 +137,7 @@ class Sblock : public Block {
     };
     ~Sblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
@@ -160,7 +160,7 @@ class Zblock : public Block {
     };
     ~Zblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();
@@ -183,7 +183,7 @@ class Tblock : public Block {
     };
     ~Tblock();
     std::vector<Posn> rot_cw() override;
-    void rot_ccw() override;
+    std::vector<Posn> rot_ccw() override;
     char getType() override;
     void print() {
         llc.print();

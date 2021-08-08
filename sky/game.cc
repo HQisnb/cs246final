@@ -17,42 +17,49 @@ int main() {
     TextDisplay td{&g1};
     g1.newGame();
 
-    g1.players[0]->currBlock = new Sblock{};// for testing purpose
-    g1.players[0]->nextBlock = new Zblock{};
-    g1.players[1]->currBlock = new Jblock{};
-    g1.players[1]->nextBlock = new Oblock{};
+    g1.players[0]->currBlock = new Jblock{};// for testing purpose
+    g1.players[0]->nextBlock = new Lblock{};
+    g1.players[1]->currBlock = new Oblock{};
+    g1.players[1]->nextBlock = new Jblock{};
     td.print();
 
-    g1.players[1]->right();
+    // g1.players[1]->right();
     // g1.players[1]->right();
     // g1.players[1]->right();
     // g1.players[0]->right();
-    g1.players[0]->down();
+    // g1.players[0]->down();
     // g1.players[1]->down();
     // g1.players[1]->right();
     // g1.players[1]->right();
     // g1.players[1]->right();
 
     
+    // td.print();
+    g1.players[0]->rot_ccw();
     td.print();
-    g1.players[0]->rot_cw();
+    g1.players[0]->rot_ccw();
+    td.print();
+    g1.players[0]->rot_ccw();
+    td.print();
+    g1.players[0]->rot_ccw();
+    td.print();
 
-    td.print();
     // g1.players[0]->rot_cw();
     // td.print();
 
     // g1.players[0]->rot_cw();
     // td.print();
 
-    // g1.players[0]->rot_cw();
-    // td.print();
 
 
-
-    g1.players[1]->rot_cw();
+    g1.players[1]->rot_ccw();
     td.print();
-    // g1.players[1]->rot_cw();
-    // td.print();
+    g1.players[1]->rot_ccw();
+    td.print();
+    g1.players[1]->rot_ccw();
+    td.print();
+    g1.players[1]->rot_ccw();
+    td.print();
     // g1.players[1]->rot_cw();
     // td.print();
     // g1.players[1]->rot_cw();

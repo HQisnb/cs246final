@@ -87,6 +87,15 @@ void Board::rot_cw() {
     }
 }
 
+void Board::rot_ccw() {
+    std::vector<Posn> temp = currBlock->rot_ccw();
+    if (this->checkTemp(temp)) {// keep this or not?
+        currBlock->points = temp;
+        currBlock->blockPointsSort();
+        currBlock->curStatus = (currBlock->curStatus + 3) % 4;
+    }
+}
+
 
 // 1. check 是否出界！
 // 2. check 转完会不会重叠 

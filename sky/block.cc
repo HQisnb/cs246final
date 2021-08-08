@@ -111,8 +111,8 @@ std::vector<Posn> Iblock::rot_cw() {
     return temp;
 }
 
-void Iblock::rot_ccw() {
-    std::cout << "IBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Iblock::rot_ccw() {
+    return rot_cw();
 }
 
 char Iblock::getType() { return type; }
@@ -157,8 +157,34 @@ std::vector<Posn> Jblock::rot_cw() {
     return temp;
 }
 
-void Jblock::rot_ccw() {
-    std::cout << "JBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Jblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[0].x += 1;
+        temp[3].y -= 2;
+        temp[3].x -= 1;
+    } else if (curStatus == 1) {
+        temp[1].y += 2;
+        temp[0].x += 2;
+        temp[0].y += 2;
+    } else if (curStatus == 2) {
+        temp[0].y -= 1;
+        temp[1].y -= 1;
+        temp[2].x -= 2;
+        temp[3].x -= 2;
+    } else {
+        temp[2].y -= 1;
+        temp[3].y -= 1;
+        temp[0].x += 1;
+        temp[0].y += 1;
+        temp[1].x += 1;
+        temp[1].y += 1;
+    }
+    return temp;
 }
 
 char Jblock::getType() { return type; }
@@ -198,8 +224,37 @@ std::vector<Posn> Lblock::rot_cw() {
     return temp;
 }
 
-void Lblock::rot_ccw() {
-    std::cout << "LBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Lblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[1].y -= 2;
+        temp[2].y -= 2;
+        temp[0].x -= 1;
+        temp[3].x -= 1;
+        std::cout << "I am here 0" << std::endl;
+    } else if (curStatus == 1) {
+        temp[0].x += 2;
+        temp[0].y += 2;
+        temp[1].x += 2;
+        std::cout << "I am here 1" << std::endl;
+    } else if (curStatus == 2) {
+        temp[1].y += 1;
+        temp[2].x -= 2;
+        temp[2].y -= 1;
+        std::cout << "I am here 2" << std::endl;
+    } else {
+        temp[0].y += 2;
+        temp[1].x -= 1;
+        temp[1].y += 1;
+        temp[3].x += 1;
+        temp[3].y -= 1;
+        std::cout << "I am here 3" << std::endl;
+    }
+    return temp;
 }
 
 char Lblock::getType() { return type; }
@@ -212,11 +267,10 @@ Oblock::~Oblock() {
 
 std::vector<Posn> Oblock::rot_cw() {
     return points;
-    std::cout << "OBlock rot_cw() does nothing" << std::endl;
 }
 
-void Oblock::rot_ccw() {
-    std::cout << "OBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Oblock::rot_ccw() {
+    return rot_cw();
 }
 
 char Oblock::getType() { return type; }
@@ -253,8 +307,8 @@ std::vector<Posn> Sblock::rot_cw() {
     return temp;
 }
 
-void Sblock::rot_ccw() {
-    std::cout << "SBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Sblock::rot_ccw() {
+    return rot_cw();
 }
 
 char Sblock::getType() { return type; }
@@ -290,8 +344,8 @@ std::vector<Posn> Zblock::rot_cw() {
     return temp;
 }
 
-void Zblock::rot_ccw() {
-    std::cout << "ZBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Zblock::rot_ccw() {
+    return rot_cw();
 }
 
 char Zblock::getType() { return type; }
@@ -328,8 +382,30 @@ std::vector<Posn> Tblock::rot_cw() {
     return temp;
 }
 
-void Tblock::rot_ccw() {
-    std::cout << "TBlock rot_ccw() does nothing" << std::endl;
+std::vector<Posn> Tblock::rot_ccw() {
+    std::vector<Posn> temp;
+    temp.clear();
+    for (int a = 0; a < 4; a++) {
+        temp.emplace_back(points[a]);
+    }
+    if (curStatus == 0) {
+        temp[3].x -= 1;
+        temp[2].x -= 2;
+        temp[2].y -= 1;
+    } else if (curStatus == 1) {
+        temp[0].x += 1;
+        temp[0].y += 1;
+    } else if (curStatus == 2) {
+        temp[1].y -= 1;
+        temp[3].x -= 1;
+        temp[3].y -= 2;
+    } else {
+        temp[0].x += 2;
+        temp[0].y += 2;
+        temp[1].x += 1;
+        temp[1].y += 1;
+    }
+    return temp;
 }
 
 char Tblock::getType() { return type; }
