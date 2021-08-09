@@ -35,6 +35,10 @@ void Graph::printGraph() {
     // start drawing the board with cell
     for (int i = 0; i < 18; i++) {
         for (int j = 0; j < 11; j++) {
+            if (td->isBlind1 == true && j > 1 && j < 9 && i > 1 && i < 12) {
+                fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, 20, 20, Xwindow::Black);
+                continue;
+            }
             if (b1->theBoard[i][j].type == 'I')
                 fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, 20, 20, Xwindow::Yellow);
             if (b1->theBoard[i][j].type == 'J')
@@ -119,6 +123,10 @@ void Graph::printGraph() {
     // start drawing the board with cell
     for (int i = 0; i < 18; i++) {
         for (int j = 0; j < 11; j++) {
+            if (td->isBlind2 == true && j > 1 && j < 9 && i > 1 && i < 12) {
+                fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, 20, 20, Xwindow::Black);
+                continue;
+            }
             if (b2->theBoard[i][j].type == 'I')
                 fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, 20, 20, Xwindow::Yellow);
             if (b2->theBoard[i][j].type == 'J')
