@@ -11,6 +11,7 @@ class Graph {
     int firstPosn = 20;
     int firstH = 50;
     int nextB = 440;
+    TextDisplay* td;
     public:
     // here is to print the graph of biquadris
     void printGraph();
