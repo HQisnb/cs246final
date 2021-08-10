@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 #include "block.h"
 #include "cell.h"
 
@@ -17,8 +18,8 @@ class Board {
     bool random = false; // random is the random switch, default to false which is off.
     char specialAction = 'N'; // default N means None, can be replaced with B/H/F
     bool gameStatus = false; // game is still going, neither won nor over.
-    Block * currBlock;
-    Block * nextBlock;
+    std::unique_ptr<Block> currBlock;
+    std::unique_ptr<Block> nextBlock;
     std::vector<std::vector<Cell>> theBoard;
     // std::vector<Block*> theBlock;
 

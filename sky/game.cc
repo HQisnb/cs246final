@@ -1,5 +1,4 @@
 #include "game.h"
-#include "textdisplay.h"
 
 void Game::newGame() {
     players.clear();
