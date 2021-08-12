@@ -78,7 +78,15 @@ void Board::drop() {
     while (isMoveValid('d')) {
         currBlock->moveDown();
     }
+    for (auto i : currBlock->points) {
+        (theBoard[i.x][i.y]).type = currBlock->getType();
+        // (theBoard[i.x][i.y]).notifyObserver();
+        (theBoard[i.x][i.y]).filled = true;
+        std::cout << "x is " << i.x << " and y is " << i.y << std::endl;
+    }
     is_playing = false;
+    currBlock = std::move(nextBlock);
+    nextBlock = level0.createBlock();
 }
 
 void Board::rot_cw() {
@@ -114,7 +122,5 @@ bool Board::checkTemp(std::vector<Posn> temp) {
 }
 
 void Board::atTurn() {
-    is_playing = true;
-    currBlock = std::move(nextBlock);
-    nextBlock = level0.createBlock();
+    
 }

@@ -1,21 +1,10 @@
 #include <iostream>
 #include "level.h"
 #include "game.h"
-#include "textdisplay.h"
+#include "textDisplay.h"
 #include <vector>
 #include <memory>
-/*
-int main() {
-    Game g1{};
-    TextDisplay td{&g1};
-    g1.newGame();
 
-    Level0 level0 {};
-    g1.players[0]->currBlock = level0.createBlock();
-    
-}
-
-*/
 int main() {
     Game g1{};
     TextDisplay td{&g1};
@@ -30,13 +19,39 @@ int main() {
 
     td.print();
 
-    while (true) {
-        
+    int i = 0;
+    while (i < 3) {
+        while (g1.players[0]->is_playing) {
+            // player 0 is playing
+            g1.players[0]->right();
+            g1.players[0]->rot_ccw();
+            g1.players[0]->down();
+            td.print();
+            g1.players[0]->drop();
+        }
+        // td.print();
+        g1.players[1]->is_playing = true;
+        while (g1.players[1]->is_playing) {
+            // player 1 is playing
+            g1.players[1]->right();
+            g1.players[1]->right();
+            g1.players[1]->right();
+            g1.players[1]->right();
+            td.print();
+            g1.players[1]->drop();
+        }
+        // td.print();
+        g1.players[0]->is_playing = true;
+        i += 1;
+
+        // if anyone won, the game loop breaks
     }
     
-    g1.players[0]->atTurn();
+    
 
     td.print();
+
+
     // g1.players[0]->right();
     // g1.players[0]->down();
     // g1.players[0]->down();
