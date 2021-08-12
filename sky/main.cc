@@ -21,6 +21,7 @@ int main() {
     TextDisplay td{&g1};
     g1.newGame();
 
+
     Level0 level0 {};
     g1.players[0]->currBlock = level0.createBlock();
     g1.players[0]->nextBlock = level0.createBlock();
@@ -28,23 +29,31 @@ int main() {
     g1.players[1]->nextBlock = level0.createBlock();
 
     td.print();
-    g1.players[0]->right();
-    g1.players[0]->down();
-    g1.players[0]->down();
-    g1.players[1]->right();
-    g1.players[1]->right();
-    g1.players[1]->right();
-    td.print();
 
-    g1.players[0]->rot_cw();
-    td.print();
-    g1.players[0]->rot_cw();
-    td.print();
+    while (true) {
+        
+    }
     
-    g1.players[1]->rot_ccw();
+    g1.players[0]->atTurn();
+
     td.print();
-    g1.players[1]->rot_ccw();
-    td.print();
+    // g1.players[0]->right();
+    // g1.players[0]->down();
+    // g1.players[0]->down();
+    // g1.players[1]->right();
+    // g1.players[1]->right();
+    // g1.players[1]->right();
+    // td.print();
+
+    // g1.players[0]->rot_cw();
+    // td.print();
+    // g1.players[0]->rot_cw();
+    // td.print();
+    
+    // g1.players[1]->rot_ccw();
+    // td.print();
+    // g1.players[1]->rot_ccw();
+    // td.print();
 
 
     // g1.players[0]->currBlock = new Jblock{};// for testing purpose

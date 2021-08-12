@@ -6,12 +6,13 @@
 #include <memory>
 #include "block.h"
 #include "cell.h"
+#include "level.h"
 
 class Board {
     public:
     int boardNo;
     int score;
-    int level = 0; //TODO: is the default level set to 0?
+    int levelNo = 0; //TODO: is the default level set to 0?
     bool is_playing ;//true means this player is playing. false means the other player is playing
     const int rows = 15 + 3;
     const int cols = 11;
@@ -21,6 +22,9 @@ class Board {
     std::unique_ptr<Block> currBlock;
     std::unique_ptr<Block> nextBlock;
     std::vector<std::vector<Cell>> theBoard;
+    Level0 level0;// to be modified to BaseLevel *
+    
+    // std::vector<BaseLevel *> level;
     // std::vector<Block*> theBlock;
 
     Board(int n);
@@ -37,7 +41,7 @@ class Board {
     // void randomSwitch();
     void rowDelete();
     void mutateBlock();
-    // void blockPointsSort();
+    void atTurn(); // renew currBlock and nextBlock
     // void blind();
     // void heavy();
     // void force();

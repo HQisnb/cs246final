@@ -1,3 +1,6 @@
+#ifndef LEVEL_H
+#define LEVEL_H
+
 #include <iostream>
 #include <memory>
 
@@ -76,3 +79,5 @@ class Level4 : public Level {
     Block* createBlock(char blockType) override {}
 };
 */
+
+#endif

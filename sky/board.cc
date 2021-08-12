@@ -1,11 +1,11 @@
 #include "board.h"
-#include "cell.h"
 #include <iostream>
 
 
 Board::Board(int n) {
     boardNo = n;
     theBoard.clear();
+
     for (int y = 1; y <= rows; y++) {//x goes from left to right, y goes from up to down
     std::vector<Cell> rowVector;
         for (int x = 1; x <= cols; x++) {
@@ -13,16 +13,19 @@ Board::Board(int n) {
         }
     theBoard.push_back(rowVector);
     }
+    
+    level0 = Level0 {};
+    // level.push_back(level0);
 }
 
 void Board::levelUp() {
-    if (level == 4) { return; }
-    level += 1; 
+    if (levelNo == 4) { return; }
+    levelNo += 1; 
 }
 
 void Board::levelDown() {
-    if (level == 0) { return; }
-    level -= 1;
+    if (levelNo == 0) { return; }
+    levelNo -= 1;
 }
 
 bool Board::isMoveValid(char c) {//TODO: NEED FURTHER CODE // create a temp block to realize strong guarantee
@@ -108,4 +111,10 @@ bool Board::checkTemp(std::vector<Posn> temp) {
         } 
     }
     return true;
+}
+
+void Board::atTurn() {
+    is_playing = true;
+    currBlock = std::move(nextBlock);
+    nextBlock = level0.createBlock();
 }

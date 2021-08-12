@@ -42,8 +42,8 @@ void TextDisplay::notify(Cell& fromWhom) {
 }
 
 void TextDisplay::print() {
-    std::cout << "level:    " << game->players[0]->level << "       ";
-    std::cout << "level:    " << game->players[1]->level << std::endl;
+    std::cout << "level:    " << game->players[0]->levelNo << "       ";
+    std::cout << "level:    " << game->players[1]->levelNo << std::endl;
 
     std::cout << "score:    " << game->players[0]->score << "       ";
     std::cout << "score:    " << game->players[1]->score << std::endl;
