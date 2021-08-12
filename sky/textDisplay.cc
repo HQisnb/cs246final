@@ -36,12 +36,8 @@ TextDisplay::TextDisplay(Game *g) {
 void TextDisplay::renew() {
     for (int i = 1; i <= 18; i++) {
         for (int j = 1; j <= 11; j++) {
-            if (game->players[0]->theBoard[i-1][j-1].isFilled()) {
-                board1[i-1][j-1] = game->players[0]->theBoard[i-1][j-1].getType();
-            }
-            if (game->players[1]->theBoard[i-1][j-1].isFilled()) {
-                board2[i-1][j-1] = game->players[1]->theBoard[i-1][j-1].getType();
-            }
+            board1[i-1][j-1] = game->players[0]->theBoard[i-1][j-1].getType();
+            board2[i-1][j-1] = game->players[1]->theBoard[i-1][j-1].getType();
         }
     }
 }

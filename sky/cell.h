@@ -8,7 +8,7 @@ class Cell : public Subject {
     int row;//TODO: row increases from up to down?
     int column;
     int boardNo;
-    char type = 'E';// E means empty
+    char type = ' ';// E means empty
     bool filled = false;
     
     Cell(int row, int column, int boardNo);

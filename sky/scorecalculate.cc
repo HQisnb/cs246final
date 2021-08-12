@@ -16,7 +16,7 @@ void Board::removeCell(int x, int y) {
 
 void Board::rowInit(int row) {
     for (int i = 0; i < 11; i++) {
-        theBoard[row][i].type = 'E';
+        theBoard[row][i].type = ' ';
         theBoard[row][i].filled = false;
     }
 }
@@ -46,7 +46,7 @@ void Board::scoreAndChange(int originLevel) {
     for (int i = 3; i < 18; i++) {
         int filled = 0;
         for (int j = 0; j < 11; j++) {
-            if (theBoard[i][j].type != 'E') {
+            if (theBoard[i][j].type != ' ') {
                 filled += 1;
             }
         }
@@ -57,6 +57,9 @@ void Board::scoreAndChange(int originLevel) {
     // here we can get how many and which rows are filled
     int filledNum = whichRow.size();
     int curAdd = filledNum;
+    // for (int i = 0; i < filledNum; i++) {
+    //     std::cout << whichRow[i] << std::endl;
+    // }
     if (curAdd == 0) return;
     curAdd = (curAdd + levelNo) * (curAdd + levelNo);
     // here we start to change the board
@@ -69,22 +72,25 @@ void Board::scoreAndChange(int originLevel) {
         }
     }
     // here we remove all blocks with empty points vector
+    int length1 = originLen;
     for (int i = 0; i < originLen;) {
         if (theBlock[i]->points.size() == 0) {
             theBlock.erase(theBlock.begin() + i);
+            originLen -= 1;
         } else {
             i++;
         }
     }
     // here we calculate the total score added;
     int afterLen = theBlock.size();
-    if (originLen - afterLen != 0) {
-        curAdd = curAdd + (originLevel + originLen - afterLen) * (originLevel + originLen - afterLen);
+    if (length1 - afterLen != 0) {
+        curAdd = curAdd + (originLevel + length1 - afterLen) * (originLevel + length1 - afterLen);
     }
     score += curAdd;
 
     // here we start to change the theBoard!!!
     for (int i = 0; i < filledNum; i++) {
+        // rowInit(whichRow[i]);//
         upperCellDown(whichRow[i]);
     }
     if (score > topScore) {
