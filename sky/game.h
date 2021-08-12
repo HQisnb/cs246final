@@ -10,8 +10,11 @@ class Game {
     int topScore = 0;
 
     void newGame();
+    void updateTopScore();
     int hiScore() { return topScore;}
+    
     friend class TextDisplay;
+    friend class Board;
 };
 
 #endif

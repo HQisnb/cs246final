@@ -1,0 +1,14 @@
+#include <iostream>
+#include <sstream>
+
+
+
+int main(int argc, char *argv[]) {
+    bool graphical = true;
+    int level = 0;
+    std::string file1 = "sequence1.txt";
+    std::string file2 = "sequence2.txt";
+
+    
+
+}

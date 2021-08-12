@@ -5,13 +5,14 @@
 Board::Board(int n) {
     boardNo = n;
     theBoard.clear();
+    theBlock.clear();
 
     for (int y = 1; y <= rows; y++) {//x goes from left to right, y goes from up to down
     std::vector<Cell> rowVector;
         for (int x = 1; x <= cols; x++) {
             rowVector.emplace_back(y, x, boardNo);
         }
-    theBoard.push_back(rowVector);
+    theBoard.emplace_back(rowVector);
     }
     
     level0 = Level0 {};
@@ -76,17 +77,21 @@ void Board::down() {
 
 void Board::drop() {
     while (isMoveValid('d')) {
-        currBlock->moveDown();
+        down();
     }
+
     for (auto i : currBlock->points) {
-        (theBoard[i.x][i.y]).type = currBlock->getType();
-        // (theBoard[i.x][i.y]).notifyObserver();
-        (theBoard[i.x][i.y]).filled = true;
-        std::cout << "x is " << i.x << " and y is " << i.y << std::endl;
+        (theBoard[i.y - 1][i.x - 1]).type = currBlock->getType();
+        (theBoard[i.y - 1][i.x - 1]).filled = true;
     }
     is_playing = false;
+    theBlock.push_back(std::move(currBlock));
+    
     currBlock = std::move(nextBlock);
     nextBlock = level0.createBlock();
+
+    //check if any row can be removed
+    scoreAndChange(levelNo);
 }
 
 void Board::rot_cw() {

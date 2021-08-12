@@ -11,7 +11,8 @@
 class Board {
     public:
     int boardNo;
-    int score;
+    int score = 0;
+    int topScore = 0;
     int levelNo = 0; //TODO: is the default level set to 0?
     bool is_playing ;//true means this player is playing. false means the other player is playing
     const int rows = 15 + 3;
@@ -23,9 +24,9 @@ class Board {
     std::unique_ptr<Block> nextBlock;
     std::vector<std::vector<Cell>> theBoard;
     Level0 level0;// to be modified to BaseLevel *
+    std::vector<std::unique_ptr<Block>> theBlock;
     
     // std::vector<BaseLevel *> level;
-    // std::vector<Block*> theBlock;
 
     Board(int n);
     void levelUp();
@@ -47,6 +48,12 @@ class Board {
     // void force();
     // void restart();
     // void isGameOver();
+
+    void removeCell(int x, int y);
+    void rowInit(int row);
+    void copyRowAndChange(int row1);
+    void upperCellDown(int row);
+    void scoreAndChange(int originLevel);
 
 };
 

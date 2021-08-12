@@ -1,0 +1,2 @@
+scorecalculate.o: scorecalculate.cc board.h block.h posn.h cell.h \
+ subject.h observer.h level.h

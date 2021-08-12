@@ -34,7 +34,6 @@ TextDisplay::TextDisplay(Game *g) {
 }
 
 void TextDisplay::renew() {
-    std::cout << "fn renew is conducted" << std::endl;
     for (int i = 1; i <= 18; i++) {
         for (int j = 1; j <= 11; j++) {
             if (game->players[0]->theBoard[i-1][j-1].isFilled()) {
@@ -74,9 +73,9 @@ void TextDisplay::print() {
                 if (belongTo(i, j, game->players[0]->currBlock->points)) {
                     std::cout << game->players[0]->currBlock->getType();
                     continue;
-                }
+                }// this is printing currBlock
                 /////////////////////
-                std::cout << board1[i-1][j-1];
+                std::cout << board1[i-1][j-1];// this is printing cells
             }
         }
         std::cout << "       ";

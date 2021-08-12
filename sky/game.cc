@@ -9,3 +9,15 @@ void Game::newGame() {
     players[0]->is_playing = true;
     players[1]->is_playing = false;
 }
+
+void Game::updateTopScore() {
+    int temp = 0;
+    if (players[0]->topScore > players[1]->topScore) {
+        temp = players[0]->topScore;
+    } else {
+        temp = players[1]->topScore;
+    }
+    if (temp > topScore) { topScore = temp; }
+}
+
+
