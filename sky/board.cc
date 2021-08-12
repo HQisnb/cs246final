@@ -101,6 +101,8 @@ void Board::rot_ccw() {
 // 2. check 转完会不会重叠 
 bool Board::checkTemp(std::vector<Posn> temp) {
     for (int a = 0; a < 4; a++) {
+        // want to add conditions: temp[a].x >= 1 && temp[a].x <= 11 temp[a].y <= 18;
+        // if we need -1 below?
         if (theBoard[temp[a].x][temp[a].y].type != 'E') {
             return false;
         } 
