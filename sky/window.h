@@ -16,7 +16,7 @@ class Xwindow {
   ~Xwindow();                              // Destructor; destroys the window.
 
   enum {White=0, Red, Green, Blue, Yellow, Cyan,
-		Orange, Brown, Linen, Purple, Black}; // Available colours.
+		Orange, Brown, Grey, Purple, Black}; // Available colours.
 
   // Draws a rectangle
   void fillRectangle(int x, int y, int width, int height, int colour=Black);
