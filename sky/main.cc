@@ -172,7 +172,42 @@ int main(int argc, char *argv[]) {
                 // g1.players[1]->is_playing = false;
                 break;
             } else {
-                continue;
+                int times = cmd[0] - '0';
+                int times1 = cmd[1] - '0';
+                int num = 0;
+                std::string subCmd;
+                if (times > 9) {
+                    continue;
+                } else {
+                    if (times1 < 9) {
+                        num = times * 10 + times1;
+                        subCmd = cmd.substr(2);
+                    } else {
+                        num = times;
+                        subCmd = cmd.substr(1);
+                    }
+                }
+
+                for (int i = num; i > 0; i--) {
+                    if (subCmd == "left") {
+                        g1.players[0]->left();
+                    }
+                    if (subCmd == "right") {
+                        g1.players[0]->right();
+                    }
+                    if (subCmd == "cw") {
+                        g1.players[0]->rot_cw();
+                    }
+                    if (subCmd == "ccw") {
+                        g1.players[0]->rot_ccw();
+                    }
+                    if (subCmd == "levelup") {
+                        g1.players[0]->levelUp();
+                    }
+                    if (subCmd == "leveldown") {
+                        g1.players[0]->levelDown();
+                    }
+                }
             }
             td.print();
             if(graphical) { //TODO: to graphical
@@ -276,7 +311,42 @@ int main(int argc, char *argv[]) {
                 /////////////////////////////////////////
                 break;
             } else {
-                int times = cmd[0];
+                int times = cmd[0] - '0';
+                int times1 = cmd[1] - '0';
+                int num = 0;
+                std::string subCmd;
+                if (times > 9) {
+                    continue;
+                } else {
+                    if (times1 < 9) {
+                        num = times * 10 + times1;
+                        subCmd = cmd.substr(2);
+                    } else {
+                        num = times;
+                        subCmd = cmd.substr(1);
+                    }
+                }
+
+                for (int i = num; i > 0; i--) {
+                    if (subCmd == "left") {
+                        g1.players[1]->left();
+                    }
+                    if (subCmd == "right") {
+                        g1.players[1]->right();
+                    }
+                    if (subCmd == "cw") {
+                        g1.players[1]->rot_cw();
+                    }
+                    if (subCmd == "ccw") {
+                        g1.players[1]->rot_ccw();
+                    }
+                    if (subCmd == "levelup") {
+                        g1.players[1]->levelUp();
+                    }
+                    if (subCmd == "leveldown") {
+                        g1.players[1]->levelDown();
+                    }
+                }
             }
             td.print();
             if(graphical) {

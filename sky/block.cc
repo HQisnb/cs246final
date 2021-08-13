@@ -4,7 +4,7 @@
 
 Block::Block() {};
 Block::~Block() {
-    std::cout << "Block destructor called" << std::endl;
+    // std::cout << "Block destructor called" << std::endl;
 }
 
 void Block::moveLeft() { 
@@ -69,7 +69,7 @@ int Block::maxY() {
 
 // Iblock Implementation
 Iblock::~Iblock() {
-    std::cout << "Iblock destructor called" << std::endl;
+    // std::cout << "Iblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Iblock::rot_cw() {
@@ -120,7 +120,7 @@ char Iblock::getType() { return type; }
 
 // Jblock Implementation
 Jblock::~Jblock() {
-    std::cout << "Jblock destructor called" << std::endl;
+    // std::cout << "Jblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Jblock::rot_cw() {
@@ -192,7 +192,7 @@ char Jblock::getType() { return type; }
 
 // Lblock Implementation
 Lblock::~Lblock() {
-    std::cout << "Lblock destructor called" << std::endl;
+    // std::cout << "Lblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Lblock::rot_cw() {
@@ -262,7 +262,7 @@ char Lblock::getType() { return type; }
 
 // Oblock Implementation
 Oblock::~Oblock() {
-    std::cout << "Oblock destructor called" << std::endl;
+    // std::cout << "Oblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Oblock::rot_cw() {
@@ -278,7 +278,7 @@ char Oblock::getType() { return type; }
 
 // Sblock Implementation
 Sblock::~Sblock() {
-    std::cout << "Sblock destructor called" << std::endl;
+    // std::cout << "Sblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Sblock::rot_cw() {
@@ -315,7 +315,7 @@ char Sblock::getType() { return type; }
 
 // Zblock Implementation
 Zblock::~Zblock() {
-    std::cout << "Zblock destructor called" << std::endl;
+    // std::cout << "Zblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Zblock::rot_cw() {
@@ -353,7 +353,7 @@ char Zblock::getType() { return type; }
 
 // Tblock Implementation
 Tblock::~Tblock() {
-    std::cout << "Tblock destructor called" << std::endl;
+    // std::cout << "Tblock destructor called" << std::endl;
 }
 
 std::vector<Posn> Tblock::rot_cw() {
@@ -409,56 +409,3 @@ std::vector<Posn> Tblock::rot_ccw() {
 }
 
 char Tblock::getType() { return type; }
-
-
-
-
-
-
-/*int main() {
-    Iblock i1 { 2 };
-    i1.print();
-    std::cout << "minX" << i1.minX();
-    std::cout << "maxX" << i1.maxX();
-    std::cout << "minY" << i1.minY();
-    // for (auto i : i1.points) {
-    //     i.print();
-    // }
-    // i1.points.clear();
-    // for (auto i : i1.points) {
-    //     i.print();
-    // }
-    // std::cout << __LINE__ << std::endl;
-    // i1.points.emplace_back(Posn(2, 15));
-    // i1.points.emplace_back(Posn(3, 14));
-    // i1.points.emplace_back(Posn(1, 13));
-    // i1.points.emplace_back(Posn(4, 15));
-    // std::cout << __LINE__ << std::endl;
-
-    // for (auto i : i1.points) {
-    //     i.print();
-    // }
-    // std::cout << __LINE__ << std::endl;
-
-    // i1.blockPointsSort();
-
-    // for (auto i : i1.points) {
-    //     i.print();
-    // }
-    
-
-    // i1.moveLeft();
-    // i1.print();
-    // std::cout << __LINE__ << std::endl;
-    // i1.moveRight();
-    // i1.print();
-    // std::cout << __LINE__ << std::endl;
-    // i1.moveDown();
-    // i1.print();
-
-    // std::unique_ptr<Iblock> uni_i1 = std::unique_ptr<Iblock>(new Iblock{Posn{5, 7}, 4});
-    // uni_i1->print();
-    // uni_i1->rot_cw();
-    // uni_i1->rot_ccw();
-
-}*/
