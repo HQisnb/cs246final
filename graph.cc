@@ -48,7 +48,7 @@ void Graph::printGraph() {
             if (b1->theBoard[i][j].type == 'S')
                 fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Red);
             if (b1->theBoard[i][j].type == 'Z')
-                fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB,sizeB, Xwindow::Pink);
+                fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB,sizeB, Xwindow::Grey);
             if (b1->theBoard[i][j].type == 'O') 
                 fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Orange);
             if (b1->theBoard[i][j].type == 'T')
@@ -69,7 +69,7 @@ void Graph::printGraph() {
             if (b1->currBlock->type == 'S')
                 fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Red);
             if (b1->currBlock->type == 'Z')
-                fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Pink);
+                fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Grey);
             if (b1->currBlock->type == 'O')
                 fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Orange);
             if (b1->currBlock->type == 'T')
@@ -89,7 +89,7 @@ void Graph::printGraph() {
             if (b1->nextBlock->type == 'S')
                 fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Red);
             if (b1->nextBlock->type == 'Z')
-                fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Pink);
+                fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Grey);
             if (b1->nextBlock->type == 'O')
                 fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Orange);
             if (b1->nextBlock->type == 'T')
@@ -142,7 +142,7 @@ void Graph::printGraph() {
             if (b2->theBoard[i][j].type == 'S')
                 fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Red);
             if (b2->theBoard[i][j].type == 'Z')
-                fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Pink);
+                fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Grey);
             if (b2->theBoard[i][j].type == 'O') 
                 fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Orange);
             if (b2->theBoard[i][j].type == 'T')
@@ -163,7 +163,7 @@ void Graph::printGraph() {
             if (b2->currBlock->type == 'S')
                 fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Red);
             if (b2->currBlock->type == 'Z')
-                fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Pink);
+                fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Grey);
             if (b2->currBlock->type == 'O')
                 fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Orange);
             if (b2->currBlock->type == 'T')
@@ -183,7 +183,7 @@ void Graph::printGraph() {
             if (b2->nextBlock->type == 'S')
                 fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Red);
             if (b2->nextBlock->type == 'Z')
-                fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Pink);
+                fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Grey);
             if (b2->nextBlock->type == 'O')
                 fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Orange);
             if (b2->nextBlock->type == 'T')
