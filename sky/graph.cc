@@ -8,7 +8,9 @@ using namespace std;
 
 
 Graph::Graph(Board *b1, Board *b2, TextDisplay *td) : b1{b1}, b2{b2}, td{td} {
-    xw = new Xwindow{};
+    if (b1 != nullptr) {
+        xw = new Xwindow{};
+    }
 }
 
 void Graph::printGraph() {

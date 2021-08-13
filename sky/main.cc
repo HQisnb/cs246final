@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     TextDisplay td{&g1};
     Graph graph { nullptr, nullptr, nullptr };
     
+    
     g1.newGame();
     
     int startLevel = 0;
@@ -21,9 +22,12 @@ int main(int argc, char *argv[]) {
     std::string file1 = "sequence1.txt";
     std::string file2 = "sequence2.txt";
     int index = 1;
+    
     while (index < argc) {
         std::string flag = argv[index];
-        if (flag == "-text") { graphical = false; }
+        if (flag == "-text") { 
+            std::cout << "I am here" << std::endl;
+            graphical = false; }
         if (flag == "-seed") {
             index += 1;
             //TODO: doing nothing, add something here!
@@ -45,8 +49,6 @@ int main(int argc, char *argv[]) {
         index += 1;
     }
 
-
-
     // int times = 0;
     std::string cmd;
 
@@ -58,12 +60,14 @@ int main(int argc, char *argv[]) {
     bool isPlayer1GameOver = false;
 
     td.print();
+    
+
     if (graphical) {
         graph = Graph {g1.players[0].get(), g1.players[1].get(), &td};
     }
-    if(graphical) { //TODO: to graphical
-                graph.printGraph();
-            }
+    if (graphical) {
+        graph.printGraph();
+        }
 
     while (true) {
         while (g1.players[0]->is_playing) {
@@ -87,7 +91,7 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             td.print();
-            if(true) { //TODO: to graphical
+            if(graphical) { //TODO: to graphical
                 graph.printGraph();
             }
         }
