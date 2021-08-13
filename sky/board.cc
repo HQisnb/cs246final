@@ -1,6 +1,9 @@
 #include "board.h"
 #include <iostream>
 
+//// here is what should be added
+// after each end of the turn, idx += 1 for idx in board;
+// change the cell at the posn of block at the board with idx euqal to the current idx in board
 
 Board::Board(int n) : level0{Level0{n}} {
     boardNo = n;
