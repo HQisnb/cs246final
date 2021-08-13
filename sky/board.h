@@ -50,7 +50,8 @@ class Board {
     // void restart();
     // void isGameOver(); 
 
-    void removeCell(int x, int y);
+    bool inVec(std::vector<int> vct, int a);
+    int NumType();
     void rowInit(int row);
     void copyRowAndChange(int row1);
     void upperCellDown(int row);

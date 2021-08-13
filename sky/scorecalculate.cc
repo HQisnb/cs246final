@@ -1,5 +1,5 @@
 #include "board.h"
-
+/*
 void Board::removeCell(int x, int y) {
     int allBlock = theBlock.size();
     for (int i = 0; i < allBlock; i++) {
@@ -101,7 +101,7 @@ void Board::scoreAndChange(int originLevel) {
     if (score > topScore) {
         topScore = score;
     }
-}
+}*/
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 // here is what I changed

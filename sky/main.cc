@@ -58,10 +58,10 @@ int main(int argc, char *argv[]) {
     bool isPlayer1GameOver = false;
 
     td.print();
-    if (true) {
+    if (graphical) {
         graph = Graph {g1.players[0].get(), g1.players[1].get(), &td};
     }
-    if(true) { //TODO: to graphical
+    if(graphical) { //TODO: to graphical
                 graph.printGraph();
             }
 
@@ -76,13 +76,13 @@ int main(int argc, char *argv[]) {
                 g1.players[0]->right();
             } else if (cmd == "down") {
                 g1.players[0]->down();
-            } else if (cmd == "drop") {
-                std::cout << "next Block for player 0?" << std::endl;
-                g1.players[0]->drop();
             } else if (cmd == "cw") {
                 g1.players[0]->rot_cw();
             } else if (cmd == "ccw") {
                 g1.players[0]->rot_ccw();
+            } else if (cmd == "drop") {
+                std::cout << "next Block for player 0?" << std::endl;
+                g1.players[0]->drop();
             } else {
                 continue;
             }
@@ -110,18 +110,18 @@ int main(int argc, char *argv[]) {
                 g1.players[1]->right();
             } else if (cmd == "down") {
                 g1.players[1]->down();
-            } else if (cmd == "drop") {
-                std::cout << "next Block for player 1?" << std::endl;
-                g1.players[1]->drop();
             } else if (cmd == "cw") {
                 g1.players[1]->rot_cw();
             } else if (cmd == "ccw") {
                 g1.players[1]->rot_ccw();
+            } else if (cmd == "drop") {
+                std::cout << "next Block for player 1?" << std::endl;
+                g1.players[1]->drop();
             } else {
                 continue;
             }
             td.print();
-            if(true) {
+            if(graphical) {
                 graph.printGraph();
             }
         }
