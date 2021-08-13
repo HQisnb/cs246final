@@ -19,6 +19,7 @@ class TextDisplay: public Observer {
     void renew();// update the two boards
     void notify(Cell &fromWhom) override;
     void print();
+    void restart();
 
 };
 

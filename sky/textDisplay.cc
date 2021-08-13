@@ -115,3 +115,15 @@ void TextDisplay::print() {
     }
 }
 
+
+void TextDisplay::restart() {
+    for (int i = 0; i < 18; i++) {
+        for (int j = 0; j < 11; j++) {
+            board1[i][j] = ' ';
+            board2[i][j] = ' ';
+        }
+    }
+    isBlind1 = false;
+    isBlind2 = false;
+}
+

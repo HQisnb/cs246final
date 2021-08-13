@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
     }
     if (graphical) {
         graph.printGraph();
-        }
+    }
 
     while (true) {
         while (g1.players[0]->is_playing) {
@@ -92,8 +92,32 @@ int main(int argc, char *argv[]) {
             } else if (cmd == "drop") {
                 std::cout << "next Block for player 0?" << std::endl;
                 g1.players[0]->drop();
+                g1.updateTopScore();
             } else if (cmd == "restart") {
                 g1.newGame();
+                td.restart();
+                //////////////////////////////////////////////////
+                g1.players[0]->file = file1;
+                g1.players[1]->file = file2;
+                g1.players[0]->level0.updateFile(g1.players[0]->file);
+                g1.players[1]->level0.updateFile(g1.players[1]->file);
+
+
+                g1.players[0]->init();
+                g1.players[1]->init();
+                isPlayer0GameOver = false;
+                isPlayer1GameOver = false;
+
+                td.print();
+                
+                if (graphical) {
+                    graph = Graph {g1.players[0].get(), g1.players[1].get(), &td};
+                }
+                if (graphical) {
+                    graph.printGraph();
+                }
+                /////////////////////////////////////////
+                // g1.players[1]->is_playing = false;
                 break;
             } else {
                 continue;
@@ -129,8 +153,32 @@ int main(int argc, char *argv[]) {
             } else if (cmd == "drop") {
                 std::cout << "next Block for player 1?" << std::endl;
                 g1.players[1]->drop();
+                g1.updateTopScore();
             } else if (cmd == "restart") {
                 g1.newGame();
+                td.restart();
+                //////////////////////////////////////////////////
+                g1.players[0]->file = file1;
+                g1.players[1]->file = file2;
+                g1.players[0]->level0.updateFile(g1.players[0]->file);
+                g1.players[1]->level0.updateFile(g1.players[1]->file);
+
+
+                g1.players[0]->init();
+                g1.players[1]->init();
+                isPlayer0GameOver = false;
+                isPlayer1GameOver = false;
+
+                td.print();
+                
+                if (graphical) {
+                    graph = Graph {g1.players[0].get(), g1.players[1].get(), &td};
+                }
+                if (graphical) {
+                    graph.printGraph();
+                }
+                /////////////////////////////////////////
+                // g1.players[0]->is_playing = true;
                 break;
             } else {
                 continue;
@@ -149,6 +197,16 @@ int main(int argc, char *argv[]) {
         }
 
        //if both game over, the game loop breaks
-       if (isPlayer0GameOver && isPlayer1GameOver) { break; }
+       if (isPlayer0GameOver && isPlayer1GameOver) { 
+           std::cout << "The Top Score of All players is " << g1.topScore << std::endl;
+           if (g1.players[0]->topScore == g1.players[1]->topScore) {
+               std::cout << "Game end in Tie!" << std::endl;
+           } else if (g1.players[0]->topScore > g1.players[1]->topScore) {
+               std::cout << "Player 0 is the winner!" << std::endl;
+           } else {
+               std::cout << "Player 1 is the winner!" << std::endl;
+           }
+           break;
+        }
     }
 }
