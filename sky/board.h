@@ -26,10 +26,15 @@ class Board {
     std::unique_ptr<Block> currBlock;
     std::unique_ptr<Block> nextBlock;
     std::vector<std::vector<Cell>> theBoard;
-    Level0 level0;// to be modified to BaseLevel *
+    Level0 level0;
+    Level1 level1;
+    Level2 level2;
+
+    bool blind = false;
+    bool heavy = false;
+    bool force = false;
     std::vector<std::unique_ptr<Block>> theBlock;
     
-    // std::vector<BaseLevel *> level;
 
     Board(int n, std::string file);
     void levelUp();
@@ -38,8 +43,8 @@ class Board {
     void right();
     void down();
     void drop();
-    void rot_cw();// newly added
-    void rot_ccw(); // newly added
+    void rot_cw();
+    void rot_ccw();
     bool isMoveValid(char c);
     bool checkTemp(std::vector<Posn> temp);// checking if rotation is valid
     // void randomSwitch();
@@ -49,8 +54,6 @@ class Board {
     // void blind();
     // void heavy();
     // void force();
-    // void restart();
-    // void isGameOver(); 
 
     bool inVec(std::vector<int> vct, int a);
     int NumType();

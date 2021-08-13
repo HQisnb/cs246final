@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
     while (index < argc) {
         std::string flag = argv[index];
         if (flag == "-text") { 
-            std::cout << "I am here" << std::endl;
             graphical = false; }
         if (flag == "-seed") {
             index += 1;
@@ -49,6 +48,11 @@ int main(int argc, char *argv[]) {
         index += 1;
     }
 
+    // modify board levelNo to match startLevel
+    g1.players[0]->levelNo = startLevel;
+    g1.players[1]->levelNo = startLevel;
+
+    // update file stream for level0
     g1.players[0]->file = file1;
     g1.players[1]->file = file2;
     g1.players[0]->level0.updateFile(g1.players[0]->file);
@@ -93,16 +97,64 @@ int main(int argc, char *argv[]) {
                 std::cout << "next Block for player 0?" << std::endl;
                 g1.players[0]->drop();
                 g1.updateTopScore();
+                // if two or more rows are cleared
+                // ask for a cmd input to trigger special action
+                // let the otherboard.heavy = true;
+                // inside drop() { heavy = false; }
+            } else if (cmd == "levelup") {
+                g1.players[0]->levelUp();
+            } else if (cmd == "leveldown") {
+                g1.players[0]->levelDown();
+            } else if (cmd == "I") {
+                if (g1.players[0]->currBlock->getType() == 'I') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Iblock>();
+                }
+            } else if (cmd == "J") {
+                if (g1.players[0]->currBlock->getType() == 'J') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Jblock>();
+                }
+            } else if (cmd == "L") {
+                if (g1.players[0]->currBlock->getType() == 'L') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Lblock>();
+                }
+            } else if (cmd == "O") {
+                if (g1.players[0]->currBlock->getType() == 'O') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Oblock>();
+                }
+            } else if (cmd == "S") {
+                if (g1.players[0]->currBlock->getType() == 'S') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Sblock>();
+                }
+            } else if (cmd == "Z") {
+                if (g1.players[0]->currBlock->getType() == 'Z') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Zblock>();
+                }
+            } else if (cmd == "T") {
+                if (g1.players[0]->currBlock->getType() == 'T') { continue; }
+                else {
+                    g1.players[0]->currBlock = std::make_unique<Tblock>();
+                }
             } else if (cmd == "restart") {
                 g1.newGame();
                 td.restart();
                 //////////////////////////////////////////////////
+                // modify board levelNo to match startLevel
+                g1.players[0]->levelNo = startLevel;
+                g1.players[1]->levelNo = startLevel;
+                
+                // update file stream for level0
                 g1.players[0]->file = file1;
                 g1.players[1]->file = file2;
                 g1.players[0]->level0.updateFile(g1.players[0]->file);
                 g1.players[1]->level0.updateFile(g1.players[1]->file);
 
-
+                // board initialization
                 g1.players[0]->init();
                 g1.players[1]->init();
                 isPlayer0GameOver = false;
@@ -154,16 +206,60 @@ int main(int argc, char *argv[]) {
                 std::cout << "next Block for player 1?" << std::endl;
                 g1.players[1]->drop();
                 g1.updateTopScore();
+            } else if (cmd == "levelup") {
+                g1.players[1]->levelUp();
+            } else if (cmd == "leveldown") {
+                g1.players[1]->levelDown();
+            } else if (cmd == "I") {
+                if (g1.players[1]->currBlock->getType() == 'I') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Iblock>();
+                }
+            } else if (cmd == "J") {
+                if (g1.players[1]->currBlock->getType() == 'J') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Jblock>();
+                }
+            } else if (cmd == "L") {
+                if (g1.players[1]->currBlock->getType() == 'L') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Lblock>();
+                }
+            } else if (cmd == "O") {
+                if (g1.players[1]->currBlock->getType() == 'O') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Oblock>();
+                }
+            } else if (cmd == "S") {
+                if (g1.players[1]->currBlock->getType() == 'S') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Sblock>();
+                }
+            } else if (cmd == "Z") {
+                if (g1.players[1]->currBlock->getType() == 'Z') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Zblock>();
+                }
+            } else if (cmd == "T") {
+                if (g1.players[1]->currBlock->getType() == 'T') { continue; }
+                else {
+                    g1.players[1]->currBlock = std::make_unique<Tblock>();
+                }
             } else if (cmd == "restart") {
                 g1.newGame();
                 td.restart();
                 //////////////////////////////////////////////////
+                // modify board levelNo to match startLevel
+                g1.players[0]->levelNo = startLevel;
+                g1.players[1]->levelNo = startLevel;
+                
+                // update file stream for level0
                 g1.players[0]->file = file1;
                 g1.players[1]->file = file2;
                 g1.players[0]->level0.updateFile(g1.players[0]->file);
                 g1.players[1]->level0.updateFile(g1.players[1]->file);
 
-
+                // board initialization
                 g1.players[0]->init();
                 g1.players[1]->init();
                 isPlayer0GameOver = false;
@@ -178,10 +274,9 @@ int main(int argc, char *argv[]) {
                     graph.printGraph();
                 }
                 /////////////////////////////////////////
-                // g1.players[0]->is_playing = true;
                 break;
             } else {
-                continue;
+                int times = cmd[0];
             }
             td.print();
             if(graphical) {

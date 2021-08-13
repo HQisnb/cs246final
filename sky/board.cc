@@ -5,7 +5,7 @@
 // after each end of the turn, idx += 1 for idx in board;
 // change the cell at the posn of block at the board with idx euqal to the current idx in board
 
-Board::Board(int n, std::string fileName) : level0{Level0{n}} {
+Board::Board(int n, std::string fileName) : level0{Level0{n}}, level1{Level1{n}}, level2{Level2{n}} {
     boardNo = n;
     file = fileName;
     theBoard.clear();
@@ -20,6 +20,7 @@ Board::Board(int n, std::string fileName) : level0{Level0{n}} {
     }
     
     level0.file = file;
+
     // level.push_back(level0);
 }
 
@@ -98,7 +99,15 @@ void Board::drop() {
     // theBlock.push_back(std::move(currBlock));
     
     currBlock = std::move(nextBlock);
-    nextBlock = level0.createBlock();
+    if (levelNo == 0) {
+        nextBlock = level0.createBlock();
+    } else if (levelNo == 1) {
+        nextBlock = level1.createBlock();
+    } else if (levelNo == 2) {
+        nextBlock = level2.createBlock();
+    } else {
+        // do nothing
+    }
 
 
     //check if the game has ended
@@ -131,8 +140,8 @@ void Board::rot_ccw() {
 }
 
 
-// 1. check 是否出界！
-// 2. check 转完会不会重叠 
+// 1. check if it is out of boundary
+// 2. check if it overlays after rotation
 bool Board::checkTemp(std::vector<Posn> temp) {
     for (int a = 0; a < 4; a++) {
         // want to add conditions: temp[a].x >= 1 && temp[a].x <= 11 temp[a].y <= 18;
@@ -148,7 +157,17 @@ bool Board::checkTemp(std::vector<Posn> temp) {
 }
 
 void Board::init() {
-    currBlock = level0.createBlock();
-    nextBlock = level0.createBlock();
+    if (levelNo == 0) {
+        currBlock = level0.createBlock();
+        nextBlock = level0.createBlock();
+    } else if (levelNo == 1) {
+        currBlock = level1.createBlock();
+        nextBlock = level1.createBlock();
+    } else if (levelNo == 2) {
+        currBlock = level2.createBlock();
+        nextBlock = level2.createBlock();
+    } else {
+        std::cout << "No such level" << std::endl;
+    }
 }
 

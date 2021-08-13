@@ -56,6 +56,32 @@ class Level0 : public BaseLevel {
     std::unique_ptr<Block> createBlock() override;
 };
 
+class Level1 : public BaseLevel {
+    public:
+    int boardNo;
+
+    Level1(int No) {
+        boardNo = No;
+    }
+
+    char whatBlock() override;
+    std::unique_ptr<Block> createBlock() override;
+};
+
+class Level2 : public BaseLevel {
+    public:
+    int boardNo;
+
+    Level2(int No) {
+        boardNo = No;
+    }
+
+    char whatBlock() override;
+    std::unique_ptr<Block> createBlock() override;
+};
+
+
+
 /*class Level1 : public Level {
     char whatBlock() override {
         int blockType = rand() % 12 + 1;
