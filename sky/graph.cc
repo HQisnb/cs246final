@@ -197,7 +197,7 @@ void Graph::printGraph() {
             if (b2->nextBlock->getType() == 'T')
                 xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Purple);
             if (b2->nextBlock->getType() == '*')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Brown);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB, nextB + b2->nextBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Brown);
         }
 
 }
