@@ -60,7 +60,7 @@ class Board {
     void rowInit(int row);
     void copyRowAndChange(int row1);
     void upperCellDown(int row);
-    void scoreAndChange(int originLevel);
+    int scoreAndChange(int originLevel);
 
 };
 
