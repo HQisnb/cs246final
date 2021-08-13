@@ -154,7 +154,7 @@ void Board::upperCellDown(int row) {
     }
 }
 
-void Board::scoreAndChange(int originLevel) {
+int Board::scoreAndChange(int originLevel) {
     // here is a vector that record filled row
     std::vector<int> whichRow;
     whichRow.clear();
@@ -178,7 +178,7 @@ void Board::scoreAndChange(int originLevel) {
     // for (int i = 0; i < filledNum; i++) {
     //     std::cout << whichRow[i] << std::endl;
     // }
-    if (curAdd == 0) return;
+    if (curAdd == 0) return 0;
     curAdd = (curAdd + levelNo) * (curAdd + levelNo);
     // here we start to change the board
     /*
@@ -218,5 +218,6 @@ void Board::scoreAndChange(int originLevel) {
     if (score > topScore) {
         topScore = score;
     }
+    return filledNum;
 }
 
