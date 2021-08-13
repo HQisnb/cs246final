@@ -8,7 +8,7 @@ using namespace std;
 
 
 Graph::Graph(Board *b1, Board *b2, TextDisplay *td) : b1{b1}, b2{b2}, td{td} {
-    if (b1 != nullptr) {
+    if ((b1 != nullptr) && (b2 != nullptr) && (td != nullptr)) {
         xw = new Xwindow{};
     }
 }
@@ -16,6 +16,7 @@ Graph::Graph(Board *b1, Board *b2, TextDisplay *td) : b1{b1}, b2{b2}, td{td} {
 void Graph::printGraph() {
     // left side print for player1 at board1
     // convert ints to string
+    xw->fillRectangle(0, 0, 500, 500, Xwindow::White);
     stringstream ss1;
     stringstream ss2;
     stringstream ss3;

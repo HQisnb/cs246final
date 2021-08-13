@@ -88,10 +88,17 @@ void Board::drop() {
         (theBoard[i.y - 1][i.x - 1]).filled = true;
     }
     is_playing = false;
-    theBlock.push_back(std::move(currBlock));
+
+    idx += 1;
+    for (int i = 0; i < 4; i++) {
+        theBoard[currBlock->points[i].y - 1 ][currBlock->points[i].x - 1].idx = idx;
+    }
+
+    // theBlock.push_back(std::move(currBlock));
     
     currBlock = std::move(nextBlock);
     nextBlock = level0.createBlock();
+
 
     //check if the game has ended
     for (int i = 0; i < 4; i++) {
