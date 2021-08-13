@@ -54,6 +54,8 @@ void Board::scoreAndChange(int originLevel) {
             whichRow.emplace_back(i);
         }
     }
+    // here (int idx) to show diff; also in board
+
     // here we can get how many and which rows are filled
     int filledNum = whichRow.size();
     int curAdd = filledNum;
