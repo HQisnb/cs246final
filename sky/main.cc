@@ -49,6 +49,13 @@ int main(int argc, char *argv[]) {
         index += 1;
     }
 
+    g1.players[0]->file = file1;
+    g1.players[1]->file = file2;
+    g1.players[0]->level0.updateFile(g1.players[0]->file);
+    g1.players[1]->level0.updateFile(g1.players[1]->file);
+    // std::cout << "file used by file1 is " << g1.players[0]->level0.file << std::endl;
+
+
     // int times = 0;
     std::string cmd;
 

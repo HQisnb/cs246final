@@ -5,8 +5,9 @@
 // after each end of the turn, idx += 1 for idx in board;
 // change the cell at the posn of block at the board with idx euqal to the current idx in board
 
-Board::Board(int n) : level0{Level0{n}} {
+Board::Board(int n, std::string fileName) : level0{Level0{n}} {
     boardNo = n;
+    file = fileName;
     theBoard.clear();
     theBlock.clear();
 
@@ -18,7 +19,7 @@ Board::Board(int n) : level0{Level0{n}} {
     theBoard.emplace_back(rowVector);
     }
     
-    // level0 = Level0 {n};
+    level0.file = file;
     // level.push_back(level0);
 }
 

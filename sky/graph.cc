@@ -16,7 +16,8 @@ Graph::Graph(Board *b1, Board *b2, TextDisplay *td) : b1{b1}, b2{b2}, td{td} {
 void Graph::printGraph() {
     // left side print for player1 at board1
     // convert ints to string
-    xw->fillRectangle(0, 0, 500, 500, Xwindow::White);
+    xw->fillRectangle(20, 0, 460, 40, Xwindow::White);
+    xw->fillRectangle(20, 410, 460, 100, Xwindow::White);
     stringstream ss1;
     stringstream ss2;
     stringstream ss3;

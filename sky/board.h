@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <string>
 #include "block.h"
 #include "cell.h"
 #include "level.h"
@@ -15,6 +16,7 @@ class Board {
     int score = 0;
     int topScore = 0;
     int levelNo = 0; //TODO: is the default level set to 0?
+    std::string file;
     bool is_playing ;//true means this player is playing. false means the other player is playing
     const int rows = 15 + 3;
     const int cols = 11;
@@ -29,7 +31,7 @@ class Board {
     
     // std::vector<BaseLevel *> level;
 
-    Board(int n);
+    Board(int n, std::string file);
     void levelUp();
     void levelDown();
     void left();

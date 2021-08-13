@@ -19,17 +19,36 @@ class BaseLevel {
 class Level0 : public BaseLevel {
     public:
     int boardNo;
-    std::ifstream file1 {"sequence1.txt"};
-    std::ifstream file2 {"sequence2.txt"};
+    std::string file;
     std::stringstream iss1;
     std::stringstream iss2;
 
     Level0(int No) {
         boardNo = No;
-        iss1 << file1.rdbuf();
-        file1.close();
-        iss2 << file2.rdbuf();
-        file2.close();
+        if (boardNo == 1) {
+            std::ifstream file1 {file};
+            iss1 << file1.rdbuf();
+            file1.close();
+        } else {
+            std::ifstream file2 {file};
+            iss2 << file2.rdbuf();
+            file2.close();
+        }
+    }
+
+    void updateFile(std::string fileName) {
+        iss1.clear();
+        iss2.clear();
+        file = fileName;
+        if (boardNo == 1) {
+            std::ifstream file1 {file};
+            iss1 << file1.rdbuf();
+            file1.close();
+        } else {
+            std::ifstream file2 {file};
+            iss2 << file2.rdbuf();
+            file2.close();
+        }
     }
 
     char whatBlock() override;
