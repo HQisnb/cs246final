@@ -48,66 +48,66 @@ void Graph::printGraph() {
     for (int i = 0; i < 18; i++) {
         for (int j = 0; j < 11; j++) {
             if (td->isBlind1 == true && j > 1 && j < 9 && i > 1 && i < 12) {
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, 20, 20, Xwindow::Cyan);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, 20, 20, 9);
                 continue;
             }
             if (b1->theBoard[i][j].type == 'I')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Yellow);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 1);
             if (b1->theBoard[i][j].type == 'J')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Blue);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 2);
             if (b1->theBoard[i][j].type == 'L')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Green);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 3);
             if (b1->theBoard[i][j].type == 'S')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Red);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 4);
             if (b1->theBoard[i][j].type == 'Z')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB,sizeB, Xwindow::Linen);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB,sizeB, 5);
             if (b1->theBoard[i][j].type == 'O') 
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Orange);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 6);
             if (b1->theBoard[i][j].type == 'T')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Purple);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 8);
             if (b1->theBoard[i][j].type == '*')
-                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Brown);
+                xw->fillRectangle(firstPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 7);
         }
     }
     // start drawing the currblock
         for (int i = 0; i < 4; i++) {
             if (b1->currBlock == nullptr) break;
             if (b1->currBlock->getType() == 'I')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Yellow);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 1);
             if (b1->currBlock->getType() == 'J')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Blue);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 2);
             if (b1->currBlock->getType() == 'L')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Green);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 3);
             if (b1->currBlock->getType() == 'S')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Red);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 4);
             if (b1->currBlock->getType() == 'Z')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Linen);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 5);
             if (b1->currBlock->getType() == 'O')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Orange);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 6);
             if (b1->currBlock->getType() == 'T')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Purple);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 8);
             if (b1->currBlock->getType() == '*')
-                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Brown);
+                xw->fillRectangle(b1->currBlock->points[i].x * sizeB, firstH + b1->currBlock->points[i].y * sizeB, sizeB, sizeB, 7);
         }
     // start drawing the nextblock;
     for (int i = 0; i < 4; i++) {
         if (b1->nextBlock == nullptr) break;
             if (b1->nextBlock->getType() == 'I')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Yellow);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 1);
             if (b1->nextBlock->getType() == 'J')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Blue);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 2);
             if (b1->nextBlock->getType() == 'L')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Green);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 3);
             if (b1->nextBlock->getType() == 'S')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Red);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 4);
             if (b1->nextBlock->getType() == 'Z')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Linen);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 5);
             if (b1->nextBlock->getType() == 'O')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Orange);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 6);
             if (b1->nextBlock->getType() == 'T')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Purple);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 8);
             if (b1->nextBlock->getType() == '*')
-                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Brown);
+                xw->fillRectangle(b1->nextBlock->points[i].x * sizeB, nextB + b1->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 7);
         }
 
     // right side print for player2 at board2
@@ -142,66 +142,65 @@ void Graph::printGraph() {
     for (int i = 0; i < 18; i++) {
         for (int j = 0; j < 11; j++) {
             if (td->isBlind2 == true && j > 1 && j < 9 && i > 1 && i < 12) {
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Cyan);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 9);
                 continue;
             }
             if (b2->theBoard[i][j].getType() == 'I')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Yellow);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 1);
             if (b2->theBoard[i][j].getType() == 'J')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Blue);
-            if (b2->theBoard[i][j].getType() == 'L')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Green);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 2);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 3);
             if (b2->theBoard[i][j].getType() == 'S')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Red);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 4);
             if (b2->theBoard[i][j].getType() == 'Z')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Linen);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 5);
             if (b2->theBoard[i][j].getType() == 'O') 
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Orange);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 6);
             if (b2->theBoard[i][j].getType() == 'T')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Purple);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 8);
             if (b2->theBoard[i][j].getType() == '*')
-                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, Xwindow::Brown);
+                xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 7);
         }
     }
     // start drawing the currblock
         for (int i = 0; i < 4; i++) {
             if (b2->currBlock == nullptr) break;
             if (b2->currBlock->getType() == 'I')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Yellow);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 1);
             if (b2->currBlock->getType() == 'J')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Blue);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 2);
             if (b2->currBlock->getType() == 'L')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Green);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 3);
             if (b2->currBlock->getType() == 'S')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Red);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 4);
             if (b2->currBlock->getType() == 'Z')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Linen);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 5);
             if (b2->currBlock->getType() == 'O')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Orange);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 6);
             if (b2->currBlock->getType() == 'T')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Purple);
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 8);
             if (b2->currBlock->getType() == '*')
-                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, Xwindow::Brown);   
+                xw->fillRectangle(secondPosn + b2->currBlock->points[i].x * sizeB - 20, firstH + b2->currBlock->points[i].y * sizeB, sizeB, sizeB, 7);   
         }
     // start drawing the nextblock;
     for (int i = 0; i < 4; i++) {
         if (b2->nextBlock == nullptr) break;
             if (b2->nextBlock->getType() == 'I')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Yellow);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 1);
             if (b2->nextBlock->getType() == 'J')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Blue);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 2);
             if (b2->nextBlock->getType() == 'L')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Green);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 3);
             if (b2->nextBlock->getType() == 'S')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Red);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 4);
             if (b2->nextBlock->getType() == 'Z')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Linen);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 5);
             if (b2->nextBlock->getType() == 'O')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Orange);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 6);
             if (b2->nextBlock->getType() == 'T')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Purple);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 8);
             if (b2->nextBlock->getType() == '*')
-                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, Xwindow::Brown);
+                xw->fillRectangle(secondPosn + b2->nextBlock->points[i].x * sizeB - 20, nextB + b2->nextBlock->points[i].y * sizeB - 2 * sizeB, sizeB, sizeB, 7);
         }
 
 }
