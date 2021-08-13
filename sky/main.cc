@@ -49,10 +49,10 @@ int main(int argc, char *argv[]) {
 
     // std::cin >> times;
 
-    Level0 board1level0 {1};
-    Level0 board2level0 {2};
     g1.players[0]->init();
     g1.players[1]->init();
+    bool isPlayer0GameOver = false;
+    bool isPlayer1GameOver = false;
 
     td.print();
 
@@ -79,7 +79,15 @@ int main(int argc, char *argv[]) {
             }
             td.print();
         }
-        g1.players[1]->is_playing = true;
+        if (g1.players[0]->gameOver) {// check if player 0 game over
+            std::cout << "player 0 game over" << std::endl;
+            isPlayer0GameOver = true;
+        }
+
+        if (isPlayer1GameOver == false) {
+            g1.players[1]->is_playing = true;
+        }
+
         while (g1.players[1]->is_playing) {
             // player 1 is playing
             std::cout << "cmd for player 1?" << std::endl;
@@ -102,7 +110,15 @@ int main(int argc, char *argv[]) {
             }
             td.print();
         }
-        g1.players[0]->is_playing = true;
-       //TODO: if anyone won, the game loop breaks
+        if (g1.players[1]->gameOver) {//check if player1 game over
+            std::cout << "player 1 game over" << std::endl;
+            isPlayer1GameOver = true;
+        }
+        if (isPlayer0GameOver == false) {
+            g1.players[0]->is_playing = true;
+        }
+
+       //TODO: if both game over, the game loop breaks
+       if (isPlayer0GameOver && isPlayer1GameOver) { break; }
     }
 }

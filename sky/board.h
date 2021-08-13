@@ -19,7 +19,7 @@ class Board {
     const int cols = 11;
     bool random = false; // random is the random switch, default to false which is off.
     char specialAction = 'N'; // default N means None, can be replaced with B/H/F
-    bool gameStatus = false; // game is still going, neither won nor over.
+    bool gameOver = false; // game is still going, neither won nor over.
     std::unique_ptr<Block> currBlock;
     std::unique_ptr<Block> nextBlock;
     std::vector<std::vector<Cell>> theBoard;
@@ -47,7 +47,7 @@ class Board {
     // void heavy();
     // void force();
     // void restart();
-    // void isGameOver();
+    // void isGameOver(); 
 
     void removeCell(int x, int y);
     void rowInit(int row);

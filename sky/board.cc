@@ -90,6 +90,13 @@ void Board::drop() {
     currBlock = std::move(nextBlock);
     nextBlock = level0.createBlock();
 
+    //check if the game has ended
+    for (int i = 0; i < 4; i++) {
+        if (theBoard[currBlock->points[i].y - 1][currBlock->points[i].x - 1].isFilled()) {
+            gameOver = true;
+        }
+    }
+
     //check if any row can be removed
     scoreAndChange(levelNo);
 }
@@ -130,3 +137,4 @@ void Board::init() {
     currBlock = level0.createBlock();
     nextBlock = level0.createBlock();
 }
+

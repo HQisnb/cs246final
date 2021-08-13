@@ -83,6 +83,9 @@ void Board::scoreAndChange(int originLevel) {
     }
     // here we calculate the total score added;
     int afterLen = theBlock.size();
+    std::cout << length1 << " is length1" << std::endl;
+    std::cout << afterLen << " is afterLen" << std::endl;
+    
     if (length1 - afterLen != 0) {
         curAdd = curAdd + (originLevel + length1 - afterLen) * (originLevel + length1 - afterLen);
     }
