@@ -42,7 +42,7 @@ class Board {
     // void randomSwitch();
     void rowDelete();
     void mutateBlock();
-    void atTurn(); // renew currBlock and nextBlock
+    void init(); // initialize currBlock and nextBlock
     // void blind();
     // void heavy();
     // void force();

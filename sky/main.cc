@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
         if (flag == "-startlevel") {
             index += 1;
             std::string temp = argv[index];
-            istringstream iss {temp};
+            std::istringstream iss {temp};
             iss >> startLevel;
         }
         index += 1;
@@ -49,11 +49,10 @@ int main(int argc, char *argv[]) {
 
     // std::cin >> times;
 
-    Level0 level0 {};
-    g1.players[0]->currBlock = level0.createBlock();
-    g1.players[0]->nextBlock = level0.createBlock();
-    g1.players[1]->currBlock = level0.createBlock();
-    g1.players[1]->nextBlock = level0.createBlock();
+    Level0 board1level0 {1};
+    Level0 board2level0 {2};
+    g1.players[0]->init();
+    g1.players[1]->init();
 
     td.print();
 

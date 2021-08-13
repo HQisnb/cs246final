@@ -12,21 +12,25 @@ class Block;
 class BaseLevel {
     public:
     int currLevel = 0;
-    int boardNo;
     virtual char whatBlock() = 0;
     virtual std::unique_ptr<Block> createBlock() = 0;
 };
 
 class Level0 : public BaseLevel {
     public:
-    Level0(int No) : boardNo{No} {}
+    int boardNo;
+    std::ifstream file1 {"sequence1.txt"};
+    std::ifstream file2 {"sequence2.txt"};
+    std::stringstream iss1;
+    std::stringstream iss2;
 
-    std::ifstream file1 {"sequence1.txt"}
-    std::ifstream file2 {"sequence2.txt"}
-    std::istringstream iss1 {file1};
-    std::istringstream iss2 {file2};
-
-    
+    Level0(int No) {
+        boardNo = No;
+        iss1 << file1.rdbuf();
+        file1.close();
+        iss2 << file2.rdbuf();
+        file2.close();
+    }
 
     char whatBlock() override;
     std::unique_ptr<Block> createBlock() override;

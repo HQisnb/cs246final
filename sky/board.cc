@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-Board::Board(int n) {
+Board::Board(int n) : level0{Level0{n}} {
     boardNo = n;
     theBoard.clear();
     theBlock.clear();
@@ -15,7 +15,7 @@ Board::Board(int n) {
     theBoard.emplace_back(rowVector);
     }
     
-    level0 = Level0 {};
+    // level0 = Level0 {n};
     // level.push_back(level0);
 }
 
@@ -126,6 +126,7 @@ bool Board::checkTemp(std::vector<Posn> temp) {
     return true;
 }
 
-void Board::atTurn() {
-    
+void Board::init() {
+    currBlock = level0.createBlock();
+    nextBlock = level0.createBlock();
 }
