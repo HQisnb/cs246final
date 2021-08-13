@@ -1,10 +1,17 @@
 #include "level.h"
 #include "block.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 
 char Level0::whatBlock() {
     char blockType;
-    std::cin >> blockType;
+    if (boardNo == 1) {
+        std::cin 
+    }
+    std::cin >> blockType;// change it to read from sequence1.txt or 2
     if (blockType == 'I') { return 'I'; }
     if (blockType == 'J') { return 'J'; }
     if (blockType == 'L') { return 'L'; }
