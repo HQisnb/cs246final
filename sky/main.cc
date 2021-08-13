@@ -53,8 +53,6 @@ int main(int argc, char *argv[]) {
     g1.players[1]->file = file2;
     g1.players[0]->level0.updateFile(g1.players[0]->file);
     g1.players[1]->level0.updateFile(g1.players[1]->file);
-    // std::cout << "file used by file1 is " << g1.players[0]->level0.file << std::endl;
-
 
     // int times = 0;
     std::string cmd;
@@ -94,6 +92,9 @@ int main(int argc, char *argv[]) {
             } else if (cmd == "drop") {
                 std::cout << "next Block for player 0?" << std::endl;
                 g1.players[0]->drop();
+            } else if (cmd == "restart") {
+                g1.newGame();
+                break;
             } else {
                 continue;
             }
@@ -128,6 +129,9 @@ int main(int argc, char *argv[]) {
             } else if (cmd == "drop") {
                 std::cout << "next Block for player 1?" << std::endl;
                 g1.players[1]->drop();
+            } else if (cmd == "restart") {
+                g1.newGame();
+                break;
             } else {
                 continue;
             }
@@ -144,7 +148,7 @@ int main(int argc, char *argv[]) {
             g1.players[0]->is_playing = true;
         }
 
-       //TODO: if both game over, the game loop breaks
+       //if both game over, the game loop breaks
        if (isPlayer0GameOver && isPlayer1GameOver) { break; }
     }
 }

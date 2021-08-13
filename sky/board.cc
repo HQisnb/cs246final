@@ -137,9 +137,12 @@ bool Board::checkTemp(std::vector<Posn> temp) {
     for (int a = 0; a < 4; a++) {
         // want to add conditions: temp[a].x >= 1 && temp[a].x <= 11 temp[a].y <= 18;
         // if we need -1 below?
-        if (theBoard[temp[a].x][temp[a].y].type != 'E') {
+        if (theBoard[temp[a].y - 1][temp[a].x - 1].type != ' ') {
             return false;
-        } 
+        }
+        if ((temp[a].x > 11) || (temp[a].x < 1) || (temp[a].y > 18) || (temp[a].y < 1)) {
+            return false;
+        }
     }
     return true;
 }

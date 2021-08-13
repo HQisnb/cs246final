@@ -145,10 +145,11 @@ void Graph::printGraph() {
                 xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 9);
                 continue;
             }
-            if (b2->theBoard[i][j].getType() == 'I')
+            if (b2->theBoard[i][j].getType() == 'I') 
                 xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 1);
             if (b2->theBoard[i][j].getType() == 'J')
                 xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 2);
+            if (b2->theBoard[i][j].getType() == 'L')
                 xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 3);
             if (b2->theBoard[i][j].getType() == 'S')
                 xw->fillRectangle(secondPosn + j * sizeB, firstH + i * sizeB, sizeB, sizeB, 4);
