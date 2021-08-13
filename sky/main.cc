@@ -6,11 +6,14 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include "graph.h"
 
 
 int main(int argc, char *argv[]) {
     Game g1{};
     TextDisplay td{&g1};
+    Graph graph { nullptr, nullptr, nullptr };
+    
     g1.newGame();
     
     int startLevel = 0;
@@ -55,6 +58,12 @@ int main(int argc, char *argv[]) {
     bool isPlayer1GameOver = false;
 
     td.print();
+    if (true) {
+        graph = Graph {g1.players[0].get(), g1.players[1].get(), &td};
+    }
+    if(true) { //TODO: to graphical
+                graph.printGraph();
+            }
 
     while (true) {
         while (g1.players[0]->is_playing) {
@@ -78,6 +87,9 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             td.print();
+            if(true) { //TODO: to graphical
+                graph.printGraph();
+            }
         }
         if (g1.players[0]->gameOver) {// check if player 0 game over
             std::cout << "player 0 game over" << std::endl;
@@ -109,6 +121,9 @@ int main(int argc, char *argv[]) {
                 continue;
             }
             td.print();
+            if(true) {
+                graph.printGraph();
+            }
         }
         if (g1.players[1]->gameOver) {//check if player1 game over
             std::cout << "player 1 game over" << std::endl;
