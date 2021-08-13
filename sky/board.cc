@@ -80,7 +80,7 @@ void Board::down() {
     currBlock->moveDown();
 }
 
-void Board::drop() {
+void Board::drop(int *rowsRemoved) {
     while (isMoveValid('d')) {
         down();
     }
@@ -118,7 +118,11 @@ void Board::drop() {
     }
 
     //check if any row can be removed
-    scoreAndChange(levelNo);
+    if (rowsRemoved == nullptr) {
+        scoreAndChange(levelNo);
+    } else {
+        *rowsRemoved = scoreAndChange(levelNo);
+    }
 }
 
 void Board::rot_cw() {

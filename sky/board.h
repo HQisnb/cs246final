@@ -42,7 +42,7 @@ class Board {
     void left();
     void right();
     void down();
-    void drop();
+    void drop(int *rowsRemoved = nullptr);
     void rot_cw();
     void rot_ccw();
     bool isMoveValid(char c);

@@ -94,9 +94,17 @@ int main(int argc, char *argv[]) {
             } else if (cmd == "ccw") {
                 g1.players[0]->rot_ccw();
             } else if (cmd == "drop") {
-                std::cout << "next Block for player 0?" << std::endl;
-                g1.players[0]->drop();
+                if (g1.players[0]->heavy) { g1.players[0]->heavy = false; }
+
+                int rowsRemoved = 0;
+                g1.players[0]->drop(&rowsRemoved);
+
                 g1.updateTopScore();
+                std::cout << "next Block for player 0?" << std::endl;
+                
+                if (rowsRemoved >= 2) {
+                    g1.players[1]->heavy = true;
+                }
                 // if two or more rows are cleared
                 // ask for a cmd input to trigger special action
                 // let the otherboard.heavy = true;
@@ -209,6 +217,18 @@ int main(int argc, char *argv[]) {
                     }
                 }
             }
+
+            // moving 2 rows down due to heavy
+            if (g1.players[0]->heavy) {
+                g1.players[0]->down();
+                if (!g1.players[0]->isMoveValid('d')) {
+                    g1.players[0]->drop();
+                } else {
+                    g1.players[0]->down();
+                }
+            }
+
+
             td.print();
             if(graphical) { //TODO: to graphical
                 graph.printGraph();
@@ -238,9 +258,18 @@ int main(int argc, char *argv[]) {
             } else if (cmd == "ccw") {
                 g1.players[1]->rot_ccw();
             } else if (cmd == "drop") {
-                std::cout << "next Block for player 1?" << std::endl;
-                g1.players[1]->drop();
+                if (g1.players[1]->heavy) { g1.players[1]->heavy = false; }
+
+                int rowsRemoved = 0;
+                g1.players[1]->drop(&rowsRemoved);
+
                 g1.updateTopScore();
+                std::cout << "next Block for player 1?" << std::endl;
+
+                if (rowsRemoved >= 2) {
+                    g1.players[0]->heavy = true;//TODO: add blind and force option here
+                }
+
             } else if (cmd == "levelup") {
                 g1.players[1]->levelUp();
             } else if (cmd == "leveldown") {
@@ -348,6 +377,18 @@ int main(int argc, char *argv[]) {
                     }
                 }
             }
+
+            // moving 2 rows down due to heavy
+            if (g1.players[1]->heavy) {
+                g1.players[1]->down();
+                if (!g1.players[1]->isMoveValid('d')) {
+                    g1.players[1]->drop();
+                } else {
+                    g1.players[1]->down();
+                }
+            }
+
+
             td.print();
             if(graphical) {
                 graph.printGraph();
