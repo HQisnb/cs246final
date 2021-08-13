@@ -11,6 +11,7 @@
 class Board {
     public:
     int boardNo;
+    int idx = 0;
     int score = 0;
     int topScore = 0;
     int levelNo = 0; //TODO: is the default level set to 0?
