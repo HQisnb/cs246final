@@ -18,7 +18,7 @@ class Board {
     int levelNo = 0; //TODO: is the default level set to 0?
     std::string file;
     bool is_playing ;//true means this player is playing. false means the other player is playing
-    const int rows = 15 + 3;
+    const int rows = 18;
     const int cols = 11;
     bool random = false; // random is the random switch, default to false which is off.
     char specialAction = 'N'; // default N means None, can be replaced with B/H/F
@@ -29,6 +29,8 @@ class Board {
     Level0 level0;
     Level1 level1;
     Level2 level2;
+    Level3 level3;
+    // Level4 level4;
 
     bool blind = false;
     bool heavy = false;

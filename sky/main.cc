@@ -89,12 +89,14 @@ int main(int argc, char *argv[]) {
                 g1.players[0]->right();
             } else if (cmd == "down") {
                 g1.players[0]->down();
-            } else if (cmd == "cw") {
+            } else if (cmd == "clockwise") {
                 g1.players[0]->rot_cw();
-            } else if (cmd == "ccw") {
+            } else if (cmd == "counterclockwise") {
                 g1.players[0]->rot_ccw();
             } else if (cmd == "drop") {
                 if (g1.players[0]->heavy) { g1.players[0]->heavy = false; }
+                if (g1.players[0]->force) { g1.players[0]->force = false; }
+                if (g1.players[0]->blind) { g1.players[0]->blind = false; }
 
                 int rowsRemoved = 0;
                 g1.players[0]->drop(&rowsRemoved);
@@ -103,8 +105,65 @@ int main(int argc, char *argv[]) {
                 std::cout << "next Block for player 0?" << std::endl;
                 
                 if (rowsRemoved >= 2) {
-                    g1.players[1]->heavy = true;
+                    std::string specialAction;
+                    std::cin >> specialAction;
+                    if (specialAction == "heavy") {
+                        g1.players[1]->heavy = true;
+                    } else if (specialAction == "force") {
+                        std::string type;
+                        std::cin >> type;
+                        if (type == "I") {
+                            if (g1.players[1]->currBlock->getType() == 'I') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Iblock>();
+                            }
+                        } else if (type == "J") {
+                            if (g1.players[1]->currBlock->getType() == 'J') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Jblock>();
+                            }
+                        } else if (type == "L") {
+                            if (g1.players[1]->currBlock->getType() == 'L') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Lblock>();
+                            }
+                        } else if (type == "O") {
+                            if (g1.players[1]->currBlock->getType() == 'O') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Oblock>();
+                            }
+                        } else if (type == "S") {
+                            if (g1.players[1]->currBlock->getType() == 'S') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Sblock>();
+                            }
+                        } else if (type == "Z") {
+                            if (g1.players[1]->currBlock->getType() == 'Z') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Zblock>();
+                            }
+                        } else if (type == "T") {
+                            if (g1.players[1]->currBlock->getType() == 'T') {
+                                continue; 
+                            } else {
+                                g1.players[1]->currBlock = std::make_unique<Tblock>();
+                            }
+                        }
+                    } else if (specialAction == "blind") {
+                        g1.players[1]->blind = true;
+                        td.isBlind2 = true;
+                    } else {
+                        std::cout << "Invalid special action input" << std::endl;
+                        // do nothing
+                    }
                 }
+
                 // if two or more rows are cleared
                 // ask for a cmd input to trigger special action
                 // let the otherboard.heavy = true;
@@ -203,10 +262,10 @@ int main(int argc, char *argv[]) {
                     if (subCmd == "right") {
                         g1.players[0]->right();
                     }
-                    if (subCmd == "cw") {
+                    if (subCmd == "clockwise") {
                         g1.players[0]->rot_cw();
                     }
-                    if (subCmd == "ccw") {
+                    if (subCmd == "counterclockwise") {
                         g1.players[0]->rot_ccw();
                     }
                     if (subCmd == "levelup") {
@@ -253,12 +312,14 @@ int main(int argc, char *argv[]) {
                 g1.players[1]->right();
             } else if (cmd == "down") {
                 g1.players[1]->down();
-            } else if (cmd == "cw") {
+            } else if (cmd == "clockwise") {
                 g1.players[1]->rot_cw();
-            } else if (cmd == "ccw") {
+            } else if (cmd == "counterclockwise") {
                 g1.players[1]->rot_ccw();
             } else if (cmd == "drop") {
                 if (g1.players[1]->heavy) { g1.players[1]->heavy = false; }
+                if (g1.players[1]->force) { g1.players[1]->force = false; }
+                if (g1.players[1]->blind) { g1.players[1]->blind = false; }
 
                 int rowsRemoved = 0;
                 g1.players[1]->drop(&rowsRemoved);
@@ -267,9 +328,63 @@ int main(int argc, char *argv[]) {
                 std::cout << "next Block for player 1?" << std::endl;
 
                 if (rowsRemoved >= 2) {
-                    g1.players[0]->heavy = true;//TODO: add blind and force option here
+                    std::string specialAction;
+                    std::cin >> specialAction;
+                    if (specialAction == "heavy") {
+                        g1.players[0]->heavy = true;//TODO: add blind and force option here
+                    } else if (specialAction == "force") {
+                        std::string type;
+                        std::cin >> type;
+                        if (type == "I") {
+                            if (g1.players[0]->currBlock->getType() == 'I') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Iblock>();
+                            }
+                        } else if (type == "J") {
+                            if (g1.players[0]->currBlock->getType() == 'J') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Jblock>();
+                            }
+                        } else if (type == "L") {
+                            if (g1.players[0]->currBlock->getType() == 'L') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Lblock>();
+                            }
+                        } else if (type == "O") {
+                            if (g1.players[0]->currBlock->getType() == 'O') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Oblock>();
+                            }
+                        } else if (type == "S") {
+                            if (g1.players[0]->currBlock->getType() == 'S') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Sblock>();
+                            }
+                        } else if (type == "Z") {
+                            if (g1.players[0]->currBlock->getType() == 'Z') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Zblock>();
+                            }
+                        } else if (type == "T") {
+                            if (g1.players[0]->currBlock->getType() == 'T') {
+                                continue; 
+                            } else {
+                                g1.players[0]->currBlock = std::make_unique<Tblock>();
+                            }
+                        }
+                    } else if (specialAction == "blind") {
+                        g1.players[0]->blind = true;
+                        td.isBlind1 = true;
+                    } else {
+                        std::cout << "Invalid special action input" << std::endl;
+                    }
                 }
-
             } else if (cmd == "levelup") {
                 g1.players[1]->levelUp();
             } else if (cmd == "leveldown") {
@@ -363,10 +478,10 @@ int main(int argc, char *argv[]) {
                     if (subCmd == "right") {
                         g1.players[1]->right();
                     }
-                    if (subCmd == "cw") {
+                    if (subCmd == "clockwise") {
                         g1.players[1]->rot_cw();
                     }
-                    if (subCmd == "ccw") {
+                    if (subCmd == "counterclockwise") {
                         g1.players[1]->rot_ccw();
                     }
                     if (subCmd == "levelup") {
